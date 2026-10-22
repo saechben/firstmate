@@ -1,0 +1,259 @@
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/identity
+TZ= rc=0
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/identity
+
+$ ps -p 78050 -o lstart= -o command=
+TZ=America/Argentina/Buenos_Aires rc=0
+Thu Oct 22 17:05:46 2026     sleep 300
+
+$ bash -c . "$1"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh 78050
+TZ=America/Argentina/Buenos_Aires rc=0
+ps-utc-v1=Thu Oct 22 20:05:46 2026     sleep 300
+
+$ ps -p 78050 -o lstart= -o command=
+TZ=Europe/Berlin rc=0
+Thu Oct 22 22:05:46 2026     sleep 300
+
+$ bash -c . "$1"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh 78050
+TZ=Europe/Berlin rc=0
+ps-utc-v1=Thu Oct 22 20:05:46 2026     sleep 300
+
+$ bash -c . "$1"; fm_pid_identity_compare "$2" "$3" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh ps-utc-v1=Thu Oct 22 20:05:46 2026     sleep 300 ps-utc-v1=Thu Oct 22 20:05:46 2026     sleep 300
+TZ=America/Argentina/Buenos_Aires rc=0
+
+SCENARIO PASS: A newly recorded real process retains the same identity across Buenos Aires and Berlin
+$ bash -c . "$1"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh 78157
+TZ=America/Argentina/Buenos_Aires rc=0
+ps-utc-v1=Thu Oct 22 20:05:46 2026     sleep 300
+
+$ bash -c . "$1"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh 78959
+TZ=America/Argentina/Buenos_Aires rc=0
+ps-utc-v1=Thu Oct 22 20:05:48 2026     sleep 300
+
+$ bash -c . "$1"; fm_pid_identity_compare "$2" "$3" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh ps-utc-v1=Thu Oct 22 20:05:48 2026     sleep 300 ps-utc-v1=Thu Oct 22 20:05:46 2026     sleep 300
+TZ=America/Argentina/Buenos_Aires rc=1
+
+$ bash -c . "$1"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh 78988
+TZ=America/Argentina/Buenos_Aires rc=0
+ps-utc-v1=Thu Oct 22 20:05:48 2026     bash -c while [ ! -f "$1" ]; do sleep .1; done; exec sleep 299 _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/identity/exec
+
+$ bash -c . "$1"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh 78988
+TZ=America/Argentina/Buenos_Aires rc=0
+ps-utc-v1=Thu Oct 22 20:05:48 2026     sleep 299
+
+$ bash -c . "$1"; fm_pid_identity_compare "$2" "$3" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh ps-utc-v1=Thu Oct 22 20:05:48 2026     sleep 299 ps-utc-v1=Thu Oct 22 20:05:48 2026     bash -c while [ ! -f "$1" ]; do sleep .1; done; exec sleep 299 _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/identity/exec
+TZ=America/Argentina/Buenos_Aires rc=1
+
+$ bash -c . "$1"; fm_pid_identity_compare "$2" "$3" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh ps-utc-v1=Thu Oct 22 20:05:46 2026     sleep 300 Thu Oct 22 20:05:46 2026     sleep 300
+TZ=America/Argentina/Buenos_Aires rc=2
+
+SCENARIO PASS: Real start and command changes still fail identity checks; untagged identity stays unverifiable
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/listener
+TZ= rc=0
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/listener
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh register lavish lab-timezone -- /bin/sh -c while [ ! -f "$1" ]; do sleep .1; done; printf "retained review feedback\n" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/listener/release
+TZ=America/Argentina/Buenos_Aires rc=0
+registered: lab-timezone (lavish)
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh ensure-listening lab-timezone
+TZ=America/Argentina/Buenos_Aires rc=0
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh list
+TZ=America/Argentina/Buenos_Aires rc=0
+SOURCE                       ADAPTER      OWNER      PENDING
+lab-timezone                 lavish       live       0
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh reconcile
+TZ=America/Argentina/Buenos_Aires rc=0
+reconciled: published=0 started=0 stopped=0 uncertain=0 failed=0
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh list
+TZ=Europe/Berlin rc=0
+SOURCE                       ADAPTER      OWNER      PENDING
+lab-timezone                 lavish       live       0
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh reconcile
+TZ=Europe/Berlin rc=0
+reconciled: published=0 started=0 stopped=0 uncertain=0 failed=0
+
+DURABLE RESULT: retained review feedback
+
+DURABLE WAKE QUEUE: 1792699550	1	check	procevent:lab-timezone:1	check: procevent lavish lab-timezone 1
+
+SCENARIO PASS: A real blocking listener survives timezone changes without replacement and durably captures feedback
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh register-task lavish lab-uncertain lab-task -- /bin/true
+TZ=America/Argentina/Buenos_Aires rc=1
+REFUSED: tmux endpoint 'lab-nonexistent:lab-task' is malformed or does not belong to task lab-task; preserving task state.
+error: cannot own a board for task lab-task; its captured feedback would reach no endpoint
+
+SCENARIO FAIL: Unknown live legacy listener refuses replacement and retirement while preserving feedback and work AssertionError(CompletedProcess(args=['/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh', 'register-task', 'lavish', 'lab-uncertain', 'lab-task', '--', '/bin/true'], returncode=1, stdout='', stderr="REFUSED: tmux endpoint 'lab-nonexistent:lab-task' is malformed or does not belong to task lab-task; preserving task state.\nerror: cannot own a board for task lab-task; its captured feedback would reach no endpoint\n"))
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/watcher
+TZ= rc=0
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/watcher
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh
+TZ=Europe/Berlin rc=1
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --restart
+TZ=Europe/Berlin rc=1
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --stop
+TZ=Europe/Berlin rc=1
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --take-over 77887
+TZ=Europe/Berlin rc=1
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --handling-delivered lab-generation --watcher-pid 81732
+TZ=Europe/Berlin rc=1
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+ALL WATCHER MODES PRESERVED CLAIM AND FEEDBACK WITHOUT SIGNAL OR REPLACEMENT
+SCENARIO PASS: Every watcher arm, restart, stop and takeover mode preserves an unverifiable live owner
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/daemon
+TZ= rc=0
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/daemon
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-contract.sh enter --words disposable ownership check
+TZ=America/Argentina/Buenos_Aires rc=0
+Quiet mode recorded at 2026-10-22T20:05:51Z: you are present, so nothing waits for your return: every action you ask for, a local landing or a merge included, proceeds now under ordinary attended authority, and quiet mode changes only which updates reach this conversation. Only an explicit /quiet off ends it.
+Quiet mode (recorded):
+  entered: 2026-10-22T20:05:51Z
+  holds: none - you are present, so nothing waits for your return: every action you ask for, a local landing or a merge included, proceeds now under ordinary attended authority, and quiet mode changes only which updates reach this conversation.
+  your words (verbatim):
+    disposable ownership check
+
+$ bash -c . "$1"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh 82688
+TZ=America/Argentina/Buenos_Aires rc=0
+ps-utc-v1=Thu Oct 22 20:05:51 2026     sleep 300
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-start.sh
+TZ=Europe/Berlin rc=1
+afk: live daemon identity is unverifiable; preserving lifecycle state
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh start
+TZ=Europe/Berlin rc=1
+fm-afk-launch: could not resolve the captain supervisor pane (set FM_SUPERVISOR_TARGET)
+
+SCENARIO FAIL: Daemon lifecycle commands refuse uncertain ownership without signalling or changing retained state AssertionError()
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/ready-missing
+TZ= rc=0
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/ready-missing
+
+$ bash -c . "$1"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh 83382
+TZ=America/Argentina/Buenos_Aires rc=0
+ps-utc-v1=Thu Oct 22 20:05:51 2026     sleep 300
+
+$ bash -c . "$1"; fm_afk_launch_commit_terminal tmux disposable-terminal owned _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh
+TZ=America/Argentina/Buenos_Aires rc=0
+
+READINESS missing elapsed_seconds 0.67 terminal_record tmux	disposable-terminal	owned
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/ready-empty
+TZ= rc=0
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/ready-empty
+
+$ bash -c . "$1"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh 84054
+TZ=America/Argentina/Buenos_Aires rc=0
+ps-utc-v1=Thu Oct 22 20:05:52 2026     sleep 300
+
+$ bash -c . "$1"; fm_afk_launch_commit_terminal tmux disposable-terminal owned _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh
+TZ=America/Argentina/Buenos_Aires rc=0
+
+READINESS empty elapsed_seconds 0.62 terminal_record tmux	disposable-terminal	owned
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/ready-persistent-unknown
+TZ= rc=0
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/ready-persistent-unknown
+
+$ bash -c . "$1"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh 85002
+TZ=America/Argentina/Buenos_Aires rc=0
+ps-utc-v1=Thu Oct 22 20:05:53 2026     sleep 300
+
+$ bash -c . "$1"; fm_afk_launch_commit_terminal tmux disposable-terminal owned _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh
+TZ=America/Argentina/Buenos_Aires rc=2
+fm-afk-launch: live daemon identity is unverifiable; preserving daemon terminal
+
+READINESS persistent-unknown elapsed_seconds 11.95 terminal_record tmux	disposable-terminal	owned
+
+SCENARIO PASS: Readiness tolerates delayed identity publication and preserves the terminal after persistent uncertainty
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/grant
+TZ= rc=0
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/grant
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-grant.sh activate 92620 lab-generation
+TZ=America/Argentina/Buenos_Aires rc=0
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-grant.sh publish lab-generation 1
+TZ=America/Argentina/Buenos_Aires rc=0
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-drain.sh
+TZ=America/Argentina/Buenos_Aires rc=1
+wake drain: branch grant owner identity is unverifiable; preserving grant and queue
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-drain.sh
+TZ=America/Argentina/Buenos_Aires rc=1
+wake drain: branch grant owner identity is unverifiable; preserving grant and queue
+
+BOTH ACTORS PRESERVED GRANT, OWNER AND QUEUE BYTES
+SCENARIO PASS: Neither actor drains feedback or reclaims a grant with an unverifiable live owner
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh retire lab-timezone
+TZ=America/Argentina/Buenos_Aires rc=0
+retired: lab-timezone
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh retire lab-uncertain
+TZ=America/Argentina/Buenos_Aires rc=0
+retired: lab-uncertain
+
+[
+  {
+    "name": "A newly recorded real process retains the same identity across Buenos Aires and Berlin",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "Real start and command changes still fail identity checks; untagged identity stays unverifiable",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "A real blocking listener survives timezone changes without replacement and durably captures feedback",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "Unknown live legacy listener refuses replacement and retirement while preserving feedback and work",
+    "result": "fail",
+    "live": true,
+    "error": "AssertionError(CompletedProcess(args=['/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh', 'register-task', 'lavish', 'lab-uncertain', 'lab-task', '--', '/bin/true'], returncode=1, stdout='', stderr=\"REFUSED: tmux endpoint 'lab-nonexistent:lab-task' is malformed or does not belong to task lab-task; preserving task state.\\nerror: cannot own a board for task lab-task; its captured feedback would reach no endpoint\\n\"))"
+  },
+  {
+    "name": "Every watcher arm, restart, stop and takeover mode preserves an unverifiable live owner",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "Daemon lifecycle commands refuse uncertain ownership without signalling or changing retained state",
+    "result": "fail",
+    "live": true,
+    "error": "AssertionError()"
+  },
+  {
+    "name": "Readiness tolerates delayed identity publication and preserves the terminal after persistent uncertainty",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "Neither actor drains feedback or reclaims a grant with an unverifiable live owner",
+    "result": "pass",
+    "live": true
+  }
+]
+Traceback (most recent call last):
+  File "/Users/benjaminsaechew/.no-mistakes/evidence/01M5G3W75FE75Q2N34Y93N373J/live-supervision.py", line 165, in <module>
+    assert all(x['result']=='pass' for x in results)
+AssertionError

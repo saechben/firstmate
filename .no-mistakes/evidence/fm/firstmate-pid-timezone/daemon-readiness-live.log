@@ -1,0 +1,71 @@
+$ tmux -S .test-phase/readiness.sock display-message -p -t lab-receiver #{socket_path},#{pid},0 rc= 0 
+.test-phase/readiness.sock,65425,0
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/real-daemon-transient-missing rc= 0 
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/real-daemon-transient-missing
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-contract.sh enter --words disposable real-daemon readiness check rc= 0 
+Away posture recorded at 2026-10-22T20:27:54Z: hold-for-return only. No phone channel is configured; anything that needs you waits for your return. Your away instructions are recorded verbatim; the away session will carry them out where it can, and anything it is unsure of, or that needs you, waits for your return. Destructive, irreversible, and security-sensitive actions are never pre-authorizable, whatever the words say. Expected return: not given. Spend cap: 4 concurrent workers.
+Away posture (recorded):
+  entered: 2026-10-22T20:27:54Z
+  expected return: not given
+  spend cap: 4 concurrent workers
+  reach: hold-for-return only. No phone channel is configured; anything that needs you waits for your return.
+  your words (verbatim):
+    disposable real-daemon readiness check
+
+$ bash -c . "$1"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh 24229 rc= 0 
+ps-utc-v1=Thu Oct 22 20:27:55 2026     bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-supervise-daemon.sh
+
+OBSERVED: public start remains pending while its actual daemon has no readable identity
+PUBLIC START RESULT: 0 
+fm-afk-launch: daemon launched in detached tmux session 'fm-afk-daemon-1861481443-23901-2872-1792700875', supervising lab-receiver:0
+
+RETAINED TERMINAL: tmux	fm-afk-daemon-1861481443-23901-2872-1792700875	
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh stop rc= 0 
+fm-afk-launch: terminal close command failed, but exact absence was confirmed
+fm-afk-launch: away-posture record archived at /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/real-daemon-transient-missing/state/afk-contracts/1792700874.afk-contract
+fm-afk-launch: away mode stopped; daemon terminal torn down, .afk cleared, and the posture record archived
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/real-daemon-persistent-missing rc= 0 
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/real-daemon-persistent-missing
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-contract.sh enter --words disposable real-daemon readiness check rc= 0 
+Away posture recorded at 2026-10-22T20:27:57Z: hold-for-return only. No phone channel is configured; anything that needs you waits for your return. Your away instructions are recorded verbatim; the away session will carry them out where it can, and anything it is unsure of, or that needs you, waits for your return. Destructive, irreversible, and security-sensitive actions are never pre-authorizable, whatever the words say. Expected return: not given. Spend cap: 4 concurrent workers.
+Away posture (recorded):
+  entered: 2026-10-22T20:27:57Z
+  expected return: not given
+  spend cap: 4 concurrent workers
+  reach: hold-for-return only. No phone channel is configured; anything that needs you waits for your return.
+  your words (verbatim):
+    disposable real-daemon readiness check
+
+$ bash -c . "$1"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh 26467 rc= 0 
+ps-utc-v1=Thu Oct 22 20:27:58 2026     bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-supervise-daemon.sh
+
+OBSERVED: public start remains pending while its actual daemon has no readable identity
+PUBLIC START RESULT: 2 
+fm-afk-launch: live daemon identity is unverifiable; preserving daemon terminal
+
+RETAINED TERMINAL: tmux	fm-afk-daemon-963578972-25877-824-1792700878	
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh stop rc= 0 
+fm-afk-launch: terminal close command failed, but exact absence was confirmed
+fm-afk-launch: away-posture record archived at /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/real-daemon-persistent-missing/state/afk-contracts/1792700877.afk-contract
+fm-afk-launch: away mode stopped; daemon terminal torn down, .afk cleared, and the posture record archived
+
+$ tmux -S .test-phase/readiness.sock kill-server rc= 0 
+
+[
+  {
+    "name": "transient-missing",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "persistent-missing",
+    "result": "pass",
+    "live": true
+  }
+]

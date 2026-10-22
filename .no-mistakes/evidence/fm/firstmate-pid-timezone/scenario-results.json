@@ -1,0 +1,72 @@
+[
+  {
+    "name": "A newly recorded real process retains the same identity across Buenos Aires and Berlin",
+    "result": "pass",
+    "live": true,
+    "evidence": "live-supervision-confirmed.log",
+    "reason": ""
+  },
+  {
+    "name": "Real start and command changes still fail identity checks; untagged identity stays unverifiable",
+    "result": "pass",
+    "live": true,
+    "evidence": "live-supervision-confirmed.log",
+    "reason": ""
+  },
+  {
+    "name": "A real blocking listener survives timezone changes without replacement and durably captures feedback",
+    "result": "pass",
+    "live": true,
+    "evidence": "live-supervision-confirmed.log",
+    "reason": ""
+  },
+  {
+    "name": "Unknown live legacy listener refuses replacement and retirement while preserving feedback and work",
+    "result": "pass",
+    "live": true,
+    "evidence": "live-supervision-confirmed.log",
+    "reason": ""
+  },
+  {
+    "name": "Every watcher arm, restart, stop and takeover mode preserves an unverifiable live owner",
+    "result": "pass",
+    "live": true,
+    "evidence": "live-supervision-confirmed.log",
+    "reason": ""
+  },
+  {
+    "name": "Daemon lifecycle commands refuse uncertain ownership without signalling or changing retained state",
+    "result": "pass",
+    "live": true,
+    "evidence": "live-supervision-confirmed.log",
+    "reason": ""
+  },
+  {
+    "name": "Readiness tolerates delayed identity publication and preserves the terminal after persistent uncertainty",
+    "result": "pass",
+    "live": true,
+    "evidence": "daemon-readiness-live.log; actual public start on isolated private tmux socket, transient and persistent missing identity",
+    "reason": ""
+  },
+  {
+    "name": "Neither actor drains feedback or reclaims a grant with an unverifiable live owner",
+    "result": "pass",
+    "live": true,
+    "evidence": "live-supervision-confirmed.log",
+    "reason": ""
+  },
+  {
+    "name": "Concurrent feedback publishers and drains preserve all records through explicit acknowledgement",
+    "result": "pass",
+    "live": true,
+    "evidence": "retry-suites.log: concurrent append plus drain preserves durable records through acknowledgement",
+    "reason": ""
+  },
+  {
+    "name": "Extension capture and classification retain Bash/JavaScript ownership agreement under Buenos Aires and Berlin timezones",
+    "result": "pass",
+    "live": true,
+    "evidence": "retry-suites.log: Bash/JavaScript capture authorization agrees under Buenos Aires and Berlin timezones",
+    "reason": ""
+  }
+]

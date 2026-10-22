@@ -2,23 +2,23 @@
   "families": [
     {
       "count": 3,
-      "duration_ms": 690624,
+      "duration_ms": 193812,
       "failed": 2,
       "name": "standalone"
     },
     {
       "count": 2,
-      "duration_ms": 300026,
-      "failed": 2,
+      "duration_ms": 375426,
+      "failed": 1,
       "name": "watcher-wake-lock"
     }
   ],
-  "finished_at": "2026-10-22T16:17:04Z",
-  "run_id": "fm-test-run-1792685067229-46003",
+  "finished_at": "2026-10-22T20:12:56Z",
+  "run_id": "fm-test-run-1792699406803-88514",
   "scripts": [
     {
-      "duration_ms": 129735,
-      "exit": 1,
+      "duration_ms": 110500,
+      "exit": 0,
       "expected_gate_skip": "none",
       "family": "watcher-wake-lock",
       "gate_skip": false,
@@ -26,25 +26,16 @@
       "path": "tests/fm-watcher-lock.test.sh"
     },
     {
-      "duration_ms": 170291,
-      "exit": 1,
-      "expected_gate_skip": "none",
-      "family": "watcher-wake-lock",
-      "gate_skip": false,
-      "gate_skip_reason": "",
-      "path": "tests/fm-wake-queue.test.sh"
-    },
-    {
-      "duration_ms": 9005,
+      "duration_ms": 120478,
       "exit": 1,
       "expected_gate_skip": "none",
       "family": "standalone",
       "gate_skip": false,
       "gate_skip_reason": "",
-      "path": "tests/fm-extension-binding.test.sh"
+      "path": "tests/fm-procevent.test.sh"
     },
     {
-      "duration_ms": 94961,
+      "duration_ms": 68445,
       "exit": 0,
       "expected_gate_skip": "none",
       "family": "standalone",
@@ -53,20 +44,29 @@
       "path": "tests/fm-claude-stop-autoarm.test.sh"
     },
     {
-      "duration_ms": 586658,
+      "duration_ms": 264926,
+      "exit": 1,
+      "expected_gate_skip": "none",
+      "family": "watcher-wake-lock",
+      "gate_skip": false,
+      "gate_skip_reason": "",
+      "path": "tests/fm-wake-queue.test.sh"
+    },
+    {
+      "duration_ms": 4889,
       "exit": 1,
       "expected_gate_skip": "none",
       "family": "standalone",
       "gate_skip": false,
       "gate_skip_reason": "",
-      "path": "tests/fm-procevent.test.sh"
+      "path": "tests/fm-extension-binding.test.sh"
     }
   ],
-  "selection": "scripts;jobs=4",
-  "started_at": "2026-10-22T16:04:27Z",
+  "selection": "scripts;jobs=1",
+  "started_at": "2026-10-22T20:03:26Z",
   "summary": {
-    "duration_ms": 757464,
-    "failed": 4,
+    "duration_ms": 569511,
+    "failed": 3,
     "skipped_gate": 0,
     "total": 5
   }
