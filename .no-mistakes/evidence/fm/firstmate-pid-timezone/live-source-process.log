@@ -1,0 +1,25 @@
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh: line 1087:  4435 Terminated: 15          "${ARGV[@]}" 1>&5 5>&- 4>&- 2> /dev/null
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh: line 1087:  4484 Terminated: 15          perl -e '
+      use strict;
+      use warnings;
+      my $limit = shift;
+      my ($written, $truncated) = (0, 0);
+      while (1) {
+        my $count = sysread(STDIN, my $buffer, 65536);
+        exit 2 unless defined $count;
+        last if $count == 0;
+        my $take = $written < $limit ? $limit - $written : 0;
+        $take = $count if $take > $count;
+        if ($take > 0) {
+          my $offset = 0;
+          while ($offset < $take) {
+            my $count_written = syswrite(STDOUT, $buffer, $take - $offset, $offset);
+            exit 2 unless defined $count_written;
+            $offset += $count_written;
+          }
+          $written += $take;
+        }
+        $truncated = 1 if $take < $count;
+      }
+      exit($truncated ? 3 : 0);
+    ' "$MAX_OUTPUT_BYTES" 0<&4 > "$out"

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "New process identities remain equal after Buenos Aires to Berlin timezone change and reject changed commands",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "A live listener survives timezone change, refuses legacy-owner retirement, and persists released feedback",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "Daemon lifecycle operations refuse an unknown live owner without changing retained state",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "Readiness waits for missing or empty identity publication and preserves persistent uncertainty",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "A watcher started in Buenos Aires stops in Berlin; an unknown live owner refuses restart and stop",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "Main and branch drain preserve feedback and grant rows when a live grant owner is unverifiable",
+    "result": "pass",
+    "live": true
+  }
+]

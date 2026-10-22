@@ -1,0 +1,135 @@
+FM_TEST_BEGIN 2026-10-22T16:09:30Z tests/fm-watcher-lock.test.sh family=watcher-wake-lock expected_gate_skip=none
+ok - disposable watcher refuses inherited state outside its marked lab
+ok - wait deadline diagnoses and reaps a stopped test child without hanging
+ok - simultaneous watcher starts leave exactly one live process
+ok - fm_pid_identity real ps fallback is locale-invariant
+ok - fm_pid_identity is locale-invariant across LC_ALL/LC_TIME
+ok - fm_pid_identity ps fallback is terminal-width-invariant
+ok - ps identity is timezone-stable and refuses real start/command changes and legacy identities
+ok - /proc process identity ignores simulated btime changes
+ok - /proc process identity detects pid reuse
+ok - MSYS /proc process identity regression skipped on non-Windows host
+ok - killed watcher stale lock is reclaimed
+tests/fm-watcher-lock.test.sh: line 1681: 41605 Killed: 9               FM_STATE_OVERRIDE="$state" bash -c '
+    . "$1"
+    fm_lock_remove_path() {
+      if [ "$1" = "$STATE/.watch.lock" ]; then
+        kill -KILL "${BASHPID:-$$}"
+      fi
+      return 1
+    }
+    fm_lock_try_acquire "$2"
+  ' _ "$LIB" "$lockdir" > /dev/null 2>&1
+ok - stale watcher reclaim publishes durable recovery evidence before clear
+ok - live watcher lock with stale heartbeat is actionable
+ok - live watcher lock with a beacon past the hard bound is replaced, under it is still refused
+ok - guard banner leads when down with pending wakes (repair-after-drain) and stays silent when live and fresh
+ok - concurrent fm_lock_try_acquire yields exactly one winner
+ok - dead-pid stale lock is reclaimed by a single acquirer
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /private/var/folders/_g/fp0xv8r932xb686wnpv8gq1r0000gn/T/fm-watcher-lock-tests.2lkcnC/lock-stale-concurrency/first-winner: Interrupted system call
+ok - concurrent stale-lock steal yields exactly one winner
+ok - dead steal owner is reclaimed once without a nested steal marker
+ok - dead nested steal chain from an interrupted reclaim is recovered
+ok - a competing reaper cannot remove the successor's steal mutex
+ok - a steal mutex abandoned by this process does not block its own reclaim
+ok - a steal reap interrupted in this process is resumed from its own tombstone
+ok - live steal mutex is not reclaimed
+ok - live-held lock is not stolen
+ok - empty mid-acquire lock keeps a minimum grace
+ok - late original claimant cannot claim a recreated lock
+ok - paused mid-acquire claimant backs off to active stealer
+ok - watcher (legacy, directory): all arm actions preserve the unverifiable live claim
+ok - watcher (legacy, symlink): all arm actions preserve the unverifiable live claim
+ok - watcher (malformed, directory): all arm actions preserve the unverifiable live claim
+ok - watcher (malformed, symlink): all arm actions preserve the unverifiable live claim
+ok - watcher (empty, directory): all arm actions preserve the unverifiable live claim
+ok - watcher (empty, symlink): all arm actions preserve the unverifiable live claim
+ok - watcher (missing, directory): all arm actions preserve the unverifiable live claim
+ok - watcher (missing, symlink): all arm actions preserve the unverifiable live claim
+ok - watcher (unavailable, directory): all arm actions preserve the unverifiable live claim
+ok - watcher (unavailable, symlink): all arm actions preserve the unverifiable live claim
+ok - watch restart preserves recovery without signaling a reused pid
+ok - watch restart attaches to a verified healthy peer and later surfaces a successor gap
+ok - watcher self-evicts when the lock pid no longer names it
+ok - arm turns clean self-eviction without a successor into a typed failure
+ok - arm attaches to a live fresh watcher and fails loudly when that cycle has no successor
+ok - attached arm signals record a classified lifecycle entry
+ok - arm starts cleanly and resurfaces recovery after a dead-pid lock
+ok - arm cleans child watcher and temp output on HUP
+ok - arm defers TERM until startup watcher can run its lock cleanup
+ok - arm TERM stops a startup watcher that never becomes cleanup-ready
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 83611.1792685498.6GWz0w
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 registered custom check(s), but no live watcher process holds this home lock (last beat: 3s ago).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  After draining queued wakes, repair missing watcher supervision according to the session-start block for this harness; do not use shell &.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+ok - arm propagates an immediate watcher wake before confirmation
+ok - arm attaches to a peer watcher after child stands down and surfaces a missing successor
+watcher: lock held by live pid 97531 but heartbeat is stale for 846004312s (>300s); inspect or stop that watcher before re-arming.
+ok - arm reports FAILED and exits non-zero when no fresh watcher can be confirmed
+ok - cycle-exit ledger links a verified successor and remains size-capped
+ok - SIGSTOP distinguishes live PID from stale beacon and termination records the exit class
+FM_TEST_END 2026-10-22T16:12:35Z tests/fm-watcher-lock.test.sh exit=0 duration_ms=184875 gate_skip=false
+FM_TEST_BEGIN 2026-10-22T16:12:35Z tests/fm-wake-queue.test.sh family=watcher-wake-lock expected_gate_skip=none
+ok - an abandoned same-process lock hold is reclaimed; a parent's live hold is not
+ok - without BASHPID a subshell cannot release or reclaim its parent lock and owns its own hold
+ok - bounded acquire hands ownership to the waiting caller after contention
+ok - presentation lock waits are bounded and retriable without weakening acknowledgement atomicity
+ok - malformed presentation locks report acquire failure instead of contention
+tests/wake-helpers.sh: line 329: 51391 Killed: 9               PATH="$dir/fakebin:$PATH" FM_FAKE_NOW_FILE="$dir/now" FM_HOME="$dir" FM_ROOT_OVERRIDE="$ROOT" FM_STATE_OVERRIDE="$dir/state" FM_FAKE_TMUX_WINDOW='firstmate:fm-mate' FM_SECONDMATE_WAKE_STALL_SECS=1 FM_SECONDMATE_LIVENESS_SECS=99999999 FM_POLL=1 FM_SIGNAL_GRACE=0 FM_CHECK_INTERVAL=999999 FM_HEARTBEAT=999999 "$WATCH" > "$dir/watch-$leg.out" 2> "$dir/watch-$leg.err"
+tests/wake-helpers.sh: line 329: 52306 Killed: 9               PATH="$dir/fakebin:$PATH" FM_FAKE_NOW_FILE="$dir/now" FM_HOME="$dir" FM_ROOT_OVERRIDE="$ROOT" FM_STATE_OVERRIDE="$dir/state" FM_FAKE_TMUX_WINDOW='firstmate:fm-mate' FM_SECONDMATE_WAKE_STALL_SECS=1 FM_SECONDMATE_LIVENESS_SECS=99999999 FM_POLL=1 FM_SIGNAL_GRACE=0 FM_CHECK_INTERVAL=999999 FM_HEARTBEAT=999999 "$WATCH" > "$dir/watch-$leg.out" 2> "$dir/watch-$leg.err"
+tests/wake-helpers.sh: line 329: 58483 Killed: 9               PATH="$dir/fakebin:$PATH" FM_FAKE_NOW_FILE="$dir/now" FM_HOME="$dir" FM_ROOT_OVERRIDE="$ROOT" FM_STATE_OVERRIDE="$dir/state" FM_FAKE_TMUX_WINDOW='firstmate:fm-mate' FM_SECONDMATE_WAKE_STALL_SECS=1 FM_SECONDMATE_LIVENESS_SECS=99999999 FM_POLL=1 FM_SIGNAL_GRACE=0 FM_CHECK_INTERVAL=999999 FM_HEARTBEAT=999999 "$WATCH" > "$dir/watch-$leg.out" 2> "$dir/watch-$leg.err"
+ok - foreign secondmate queue alerts once per no-progress episode without age-only or cascade noise
+ok - declared external-wait pause rows do not feed secondmate wake-loop escalation
+ok - a reprovisioned queue generation starts a fresh no-progress interval
+ok - an active turn defers the secondmate stall escalation without cancelling it
+ok - a long-lived mate mid-turn is not a stall, but a queue frozen past the busy bound still alarms
+ok - a proven-idle leftover row is rung so the child home can drain without a parent alarm
+ok - TERM stops a watcher blocked in the drain-ring idle capture and runs its cleanup
+ok - busy panes defer without a ring and unknown panes keep the parent alarm
+ok - a leftover row that survives a proven-idle ring still surfaces as a genuine stall
+ok - secondmate stall markers reject symlinks without touching their targets
+ok - stall publication acknowledgement closes the pre-marker crash window
+ok - empty prefix mate cleanup preserves another mate's stall receipt
+ok - self-announced appends suppress only their own bytes and fail toward waking
+ok - separate self-announced answers after a fold stay owned; worker decisions and later lines still wake
+ok - an unreadable status still reads as unreported, with or without owned growth
+ok - a worker resolved in fold lag still wakes after this home's close
+ok - owned growth suppresses the wake without hiding the turn-ended annotation
+ok - historical annotations replay nothing already announced and keep everything new
+wake drain: queue lock could not be acquired safely
+not ok - concurrent append/drain subprocess failed
+FM_TEST_END 2026-10-22T16:16:28Z tests/fm-wake-queue.test.sh exit=1 duration_ms=233267 gate_skip=false
+FM_TEST_SUMMARY total=2 failed=1 skipped_gate=0 duration_ms=418305
+FM_TEST_SUMMARY_FAMILY family=watcher-wake-lock count=2 duration_ms=418142 failed=1
+FM_TEST_SLOWEST rank=1 script=tests/fm-wake-queue.test.sh duration_ms=233267
+FM_TEST_SLOWEST rank=2 script=tests/fm-watcher-lock.test.sh duration_ms=184875
+fm-test-run: wrote timing artifact: /Users/benjaminsaechew/.no-mistakes/evidence/01M5G3W75FE75Q2N34Y93N373J/native-wake-timing.json

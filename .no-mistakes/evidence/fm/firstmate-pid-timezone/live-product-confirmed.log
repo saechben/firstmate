@@ -1,0 +1,187 @@
+
+SCENARIO: New process identities remain equal after Buenos Aires to Berlin timezone change and reject changed commands
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/manual/identity
+exit= 0 
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/manual/identity
+
+$ ps -p 64414 -o lstart=
+exit= 0 
+Thu Oct 22 16:35:59 2026    
+
+$ bash -c . "$1/bin/fm-wake-lib.sh"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J 64414
+exit= 0 
+ps-utc-v1=Thu Oct 22 19:35:59 2026     sleep 120
+
+$ ps -p 64414 -o lstart=
+exit= 0 
+Thu Oct 22 21:35:59 2026    
+
+$ bash -c . "$1/bin/fm-wake-lib.sh"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J 64414
+exit= 0 
+ps-utc-v1=Thu Oct 22 19:35:59 2026     sleep 120
+
+$ bash -c . "$1/bin/fm-wake-lib.sh"; fm_pid_identity_compare "$2" "$3" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J ps-utc-v1=Thu Oct 22 19:35:59 2026     sleep 120 ps-utc-v1=Thu Oct 22 19:35:59 2026     sleep 120
+exit= 0 
+
+$ bash -c . "$1/bin/fm-wake-lib.sh"; fm_pid_identity_compare "$2" "$3" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J ps-utc-v1=Thu Oct 22 19:35:59 2026     sleep 120 ps-utc-v1=Thu Oct 22 19:35:59 2026     sleep 120 changed-command
+exit= 1 
+
+$ bash -c . "$1/bin/fm-wake-lib.sh"; fm_pid_identity_compare "$2" "$3" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J ps-utc-v1=Thu Oct 22 19:35:59 2026     sleep 120 Thu Oct 22 19:35:59 2026     sleep 120
+exit= 2 
+
+Raw starts differ across timezones; tagged identities match; command mismatch=1; untagged=2.
+OBSERVED: PASS
+
+SCENARIO: A live listener survives timezone change, refuses legacy-owner retirement, and persists released feedback
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/manual/listener
+exit= 0 
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/manual/listener
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh register lavish live-test-source -- /bin/bash -c while [ ! -f "$1" ]; do sleep 0.1; done; printf "retained review feedback\n" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/manual/listener/release
+exit= 0 
+registered: live-test-source (lavish)
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh reconcile
+exit= 0 
+reconciled: published=0 started=1 stopped=0 uncertain=0 failed=0
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh list
+exit= 0 
+SOURCE                       ADAPTER      OWNER      PENDING
+live-test-source             lavish       live       0
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh list
+exit= 0 
+SOURCE                       ADAPTER      OWNER      PENDING
+live-test-source             lavish       live       0
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh start live-test-source
+exit= 0 
+already owned: live-test-source
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh list
+exit= 0 
+SOURCE                       ADAPTER      OWNER      PENDING
+live-test-source             lavish       uncertain  0
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh reconcile
+exit= 0 
+reconciled: published=0 started=0 stopped=0 uncertain=1 failed=0
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh retire live-test-source
+exit= 1 
+error: cannot confirm runner identity; source remains registered: live-test-source
+
+Legacy identity refused retirement/replacement and preserved the active claim.
+PERSISTED RESULT: retained review feedback
+
+PERSISTED WAKE: 1792697764	1	check	procevent:live-test-source:1	check: procevent lavish live-test-source 1
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh retire live-test-source
+exit= 1 
+error: cannot confirm runner identity; source remains registered: live-test-source
+
+OBSERVED: FAIL AssertionError(CompletedProcess(args=['bash', '/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh', 'retire', 'live-test-source'], returncode=1, stdout='', stderr='error: cannot confirm runner identity; source remains registered: live-test-source\n'))
+
+SCENARIO: Daemon lifecycle operations refuse an unknown live owner without changing retained state
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/manual/daemon-owner
+exit= 0 
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/manual/daemon-owner
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh enter --words isolated ownership proof
+exit= 0 
+Away posture recorded at 2026-10-22T19:36:04Z: hold-for-return only. No phone channel is configured; anything that needs you waits for your return. Your away instructions are recorded verbatim; the away session will carry them out where it can, and anything it is unsure of, or that needs you, waits for your return. Destructive, irreversible, and security-sensitive actions are never pre-authorizable, whatever the words say. Expected return: not given. Spend cap: 4 concurrent workers.
+Away posture (recorded):
+  entered: 2026-10-22T19:36:04Z
+  expected return: not given
+  spend cap: 4 concurrent workers
+  reach: hold-for-return only. No phone channel is configured; anything that needs you waits for your return.
+  your words (verbatim):
+    isolated ownership proof
+
+$ ps -p 68920 -o lstart= -o command=
+exit= 0 
+Thu Oct 22 16:36:04 2026     sleep 120
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh start
+exit= 2 
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh start-native
+exit= 2 
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh stop
+exit= 2 
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh reconcile
+exit= 2 
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-start.sh
+exit= 1 
+afk: live daemon identity is unverifiable; preserving lifecycle state
+
+Every lifecycle operation preserved claim, terminal, posture, feedback, and live PID.
+OBSERVED: PASS
+
+SCENARIO: Readiness waits for missing or empty identity publication and preserves persistent uncertainty
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/manual/readiness
+exit= 0 
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/manual/readiness
+
+$ bash -c . "$1/bin/fm-wake-lib.sh"; fm_pid_identity "$2" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J 69656
+exit= 0 
+ps-utc-v1=Thu Oct 22 19:36:05 2026     sleep 120
+
+$ bash -c . "$1/bin/fm-afk-launch.sh"; fm_afk_launch_commit_terminal tmux disposable-terminal owned _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J
+exit= 0 
+
+Readiness continued through missing identity and accepted its later publication.
+$ bash -c . "$1/bin/fm-afk-launch.sh"; fm_afk_launch_commit_terminal tmux disposable-terminal owned _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J
+exit= 0 
+
+Readiness continued through empty identity and accepted its later publication.
+$ bash -c . "$1/bin/fm-afk-launch.sh"; fm_afk_launch_commit_terminal tmux disposable-terminal owned 1 _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J
+exit= 2 
+fm-afk-launch: live daemon identity is unverifiable; preserving daemon terminal
+
+Persistent readiness uncertainty returned 2 and preserved all lifecycle records.
+OBSERVED: PASS
+
+SCENARIO: A watcher started in Buenos Aires stops in Berlin; an unknown live owner refuses restart and stop
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/manual/watcher
+exit= 0 
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/manual/watcher
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --stop
+exit= 1 
+watcher: FAILED - pid=85196 did not stop
+
+OBSERVED: FAIL AssertionError(CompletedProcess(args=['bash', '/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh', '--stop'], returncode=1, stdout='watcher: FAILED - pid=85196 did not stop\n', stderr=''))
+
+SCENARIO: Main and branch drain preserve feedback and grant rows when a live grant owner is unverifiable
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/manual/grant
+exit= 0 
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/manual/grant
+
+$ bash -c . "$1/bin/fm-wake-lib.sh"; fm_wake_append check retained "check: retained feedback" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J
+exit= 0 
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-grant.sh activate 64320 live-test-owner
+exit= 0 
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-grant.sh publish live-test-owner 1
+exit= 0 
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-drain.sh
+exit= 1 
+wake drain: branch grant owner identity is unverifiable; preserving grant and queue
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-drain.sh
+exit= 1 
+wake drain: branch grant owner identity is unverifiable; preserving grant and queue
+
+Both drain actors refused the unknown owner and preserved queue, grant rows, and owner bytes.
+OBSERVED: PASS

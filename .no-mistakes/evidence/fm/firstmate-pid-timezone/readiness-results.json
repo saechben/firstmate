@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Real daemon launch waits for delayed PID identity publication and succeeds",
+    "result": "pass"
+  },
+  {
+    "name": "A real daemon whose identity remains unreadable survives the readiness deadline with lifecycle state intact",
+    "result": "pass"
+  }
+]

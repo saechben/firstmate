@@ -1,0 +1,29 @@
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/grant-lab actor=None
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/grant-lab
+
+exit=0
+$ bash -c . "$1"; fm_wake_append check disposable "check: retained feedback" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh actor=None
+
+exit=0
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-grant.sh activate 27266 disposable-generation actor=None
+
+exit=0
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-grant.sh publish disposable-generation 1 actor=None
+
+exit=0
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-drain.sh actor=main
+wake drain: branch grant owner identity is unverifiable; preserving grant and queue
+
+exit=1
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-drain.sh actor=branch
+wake drain: branch grant owner identity is unverifiable; preserving grant and queue
+
+exit=1
+OBSERVED: both actors refuse to consume queued feedback or reclaim an unverifiable live owner grant; all three persisted records are byte-identical
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-grant.sh release disposable-generation actor=None
+
+exit=0
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-grant.sh deactivate 27266 disposable-generation actor=None
+
+exit=0
+PASS

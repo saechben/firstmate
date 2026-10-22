@@ -1,0 +1,21 @@
+Final targeted validation: no-go.
+
+Isolated product scenarios:
+- pass: Timezone change keeps newly recorded listeners recognizable; legacy and mismatched claims remain guarded
+- pass: Arm, restart, stop and takeover preserve uncertain watcher ownership in directory and symlink locks
+- pass: Main and branch drains preserve a grant and queued feedback when its owner is unverifiable
+- pass: Daemon and launcher lifecycle requests preserve uncertain ownership and retained feedback
+- pass: Real daemon launch waits for delayed PID identity publication and succeeds
+- pass: A real daemon whose identity remains unreadable survives the readiness deadline with lifecycle state intact
+- pass: Real command changes and distinct starts reject stale ownership without signalling unrelated live processes
+- pass: Compatible proc records ignore wall-clock changes and detect reused starttime
+- pass: Concurrent append and drain preserves every queued feedback record
+- pass: Bash/JavaScript extension capture authorization under Buenos Aires and Berlin (extension-flow.log).
+
+Unresolved checks:
+- The wake-queue suite twice failed with "wake drain: queue lock could not be acquired safely" followed by "not ok - concurrent append/drain subprocess failed". The second run used normal temporary storage and --jobs 1. An independent public-interface reproduction retained all 40 rows and emitted the documented retriable live-lock advisory; no data loss was demonstrated. The native regression remains red.
+- The process-event suite exited 1 after "an attached-start keeper stops refreshing after its parent exits", without a failure assertion or the final completion line. Its concurrent stale-claim replacement case passed. The next fixture begins the reused-runner-group reconciliation path; available output does not establish the exact failing command or root cause.
+
+Setup corrections: the initial suites used TMPDIR inside the worktree. Extension packages intentionally reject Git ancestors. Native temporary storage corrected this; the full extension aggregate, lifecycle-flow, and remote-activation checks passed. The watcher suite also passed its native-storage rerun. The Claude auto-arm suite passed in the initial run. No source edits, lint, pipeline control, publication, Herdr lifecycle, production credentials, or live fleet state changes were performed.
+Readiness checks used the real launcher and supervision daemon in private tmux sockets. A fixture ps wrapper delayed or refused only the daemon descendant identity read; it delegated all other reads to /bin/ps. Both servers were killed and verified absent. Proc compatibility was driven through real public commands over disposable /proc-format data, not a Linux kernel.
+The first supplementary concurrency diagnostic was interrupted because its per-child waits gave it an excessive aggregate bound; all owned children were cleaned. The corrected diagnostic used one global 120-second bound and passed with 40 durable rows.

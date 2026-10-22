@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Real command changes and distinct starts reject stale ownership without signalling unrelated live processes",
+    "result": "pass"
+  },
+  {
+    "name": "Compatible proc records ignore wall-clock changes and detect reused starttime",
+    "result": "pass"
+  }
+]

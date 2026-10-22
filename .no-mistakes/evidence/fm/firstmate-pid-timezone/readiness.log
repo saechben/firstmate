@@ -1,0 +1,83 @@
+
+SCENARIO: Real daemon launch waits for delayed PID identity publication and succeeds
+$ tmux -f /dev/null -S .test-phase/ready-delayed.sock new-session -d -s fm-lab-readiness -c /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J sleep 120
+exit=0
+
+$ tmux -S .test-phase/ready-delayed.sock set-option -g default-shell /bin/bash
+exit=0
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-contract.sh enter
+exit=0
+Away posture recorded at 2026-10-22T16:11:52Z: hold-for-return only. No phone channel is configured; anything that needs you waits for your return. No away instructions were recorded; the away session acts on standing authority only, and anything that needs you waits for your return. Destructive, irreversible, and security-sensitive actions are never pre-authorizable, whatever the words say. Expected return: not given. Spend cap: 4 concurrent workers.
+Away posture (recorded):
+  entered: 2026-10-22T16:11:52Z
+  expected return: not given
+  spend cap: 4 concurrent workers
+  reach: hold-for-return only. No phone channel is configured; anything that needs you waits for your return.
+  your words: (none)
+
+Real daemon PID 98291 is live; identity publication held for 0.7 seconds; launcher still waiting.
+fm-afk-launch: daemon launched in detached tmux session 'fm-afk-daemon-2739332272-97920-10281-1792685513', supervising fm-lab-readiness:0
+
+reader-parent=98719 target=98291
+reader-parent=98900 target=98291
+reader-parent=99299 target=98291
+reader-parent=99684 target=98291
+reader-parent=99987 target=98291
+reader-parent=450 target=98291
+
+Persisted terminal record: tmux	fm-afk-daemon-2739332272-97920-10281-1792685513	
+
+$ tmux -S .test-phase/ready-delayed.sock list-sessions
+exit=0
+fm-afk-daemon-2739332272-97920-10281-1792685513: 1 windows (created Thu Oct 22 18:11:53 2026)
+fm-lab-readiness: 1 windows (created Thu Oct 22 18:11:52 2026)
+
+$ tmux -S .test-phase/ready-delayed.sock has-session -t fm-afk-daemon-2739332272-97920-10281-1792685513
+exit=0
+
+Readiness succeeded with the published identity and live recorded terminal.
+$ tmux -S .test-phase/ready-delayed.sock kill-server
+exit=0
+
+
+SCENARIO: A real daemon whose identity remains unreadable survives the readiness deadline with lifecycle state intact
+$ tmux -f /dev/null -S .test-phase/ready-unknown.sock new-session -d -s fm-lab-readiness -c /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J sleep 120
+exit=0
+
+$ tmux -S .test-phase/ready-unknown.sock set-option -g default-shell /bin/bash
+exit=0
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-contract.sh enter
+exit=0
+Away posture recorded at 2026-10-22T16:11:55Z: hold-for-return only. No phone channel is configured; anything that needs you waits for your return. No away instructions were recorded; the away session acts on standing authority only, and anything that needs you waits for your return. Destructive, irreversible, and security-sensitive actions are never pre-authorizable, whatever the words say. Expected return: not given. Spend cap: 4 concurrent workers.
+Away posture (recorded):
+  entered: 2026-10-22T16:11:55Z
+  expected return: not given
+  spend cap: 4 concurrent workers
+  reach: hold-for-return only. No phone channel is configured; anything that needs you waits for your return.
+  your words: (none)
+
+Real daemon PID 4157 is live; identity publication held for 0.7 seconds; launcher still waiting.
+fm-afk-launch: live daemon identity is unverifiable; preserving daemon terminal
+
+reader-parent=4730 target=4157
+reader-parent=4798 target=4157
+reader-parent=4987 target=4157
+reader-parent=5134 target=4157
+reader-parent=5287 target=4157
+
+Persisted terminal record: tmux	fm-afk-daemon-257382210-3412-2594-1792685516	
+
+$ tmux -S .test-phase/ready-unknown.sock list-sessions
+exit=0
+fm-afk-daemon-257382210-3412-2594-1792685516: 1 windows (created Thu Oct 22 18:11:56 2026)
+fm-lab-readiness: 1 windows (created Thu Oct 22 18:11:55 2026)
+
+$ tmux -S .test-phase/ready-unknown.sock has-session -t fm-afk-daemon-257382210-3412-2594-1792685516
+exit=0
+
+Readiness deadline returned uncertainty while preserving daemon, posture and recorded terminal.
+$ tmux -S .test-phase/ready-unknown.sock kill-server
+exit=0
+

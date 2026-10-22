@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Timezone change keeps newly recorded listeners recognizable; legacy and mismatched claims remain guarded",
+    "result": "pass"
+  },
+  {
+    "name": "Arm, restart, stop and takeover preserve uncertain watcher ownership in directory and symlink locks",
+    "result": "pass"
+  },
+  {
+    "name": "Main and branch drains preserve a grant and queued feedback when its owner is unverifiable",
+    "result": "pass"
+  },
+  {
+    "name": "Daemon and launcher lifecycle requests preserve uncertain ownership and retained feedback",
+    "result": "pass"
+  }
+]

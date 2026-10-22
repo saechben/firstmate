@@ -1,0 +1,10 @@
+registered: state/task.check.sh
+check: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/tmp/cycle-reproduction.MtxOCe/cycle-ledger/state/task.check.sh: done: synthetic cycle
+arm exit=0
+.watch-cycle-exits.log
+arm_pid=34924	watcher_pid=34982	origin=started	started_at=1792616476	ended_at=1792616480	exit_code=0	signal=none	reason=actionable-check	beacon_age=2	lock_before=pid:none|identity:none	lock_after=pid:none|identity:none	successor=none
+.wake-queue
+1792616479	1	check	/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/tmp/cycle-reproduction.MtxOCe/cycle-ledger/state/task.check.sh	check: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/tmp/cycle-reproduction.MtxOCe/cycle-ledger/state/task.check.sh: done: synthetic cycle
+task.check-trust
+fm-custom-check-v1
+ee8c83dfb268295222d5574ff6d87b84a101ba24057a801dec953725494726e5

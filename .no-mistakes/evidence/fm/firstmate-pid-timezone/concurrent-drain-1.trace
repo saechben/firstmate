@@ -1,0 +1,343 @@
++ set -u
+++ d=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
+++ '[' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin '!=' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-drain.sh ']'
+++ cd /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
+++ pwd
++ SCRIPT_DIR=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
++ . /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh
++++ d=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
++++ '[' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin '!=' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh ']'
++++ cd /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
++++ pwd
+++ FM_WAKE_LIB_DIR=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
++++ cd /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/..
++++ pwd
+++ FM_WAKE_DEFAULT_ROOT=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J
+++ FM_ROOT=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1
+++ FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1
+++ STATE=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state
+++ FM_WAKE_QUEUE=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue
+++ FM_WAKE_QUEUE_LOCK=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
+++ FM_LOCK_STALE_AFTER=2
+++ . /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-path-lib.sh
++++ uname
+++ _FM_UNAME=Darwin
+++ mkdir -p /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state
+++ '[' 3 -gt 4 ']'
+++ '[' 3 -eq 4 ']'
+++ FM_WATCHER_MATCHED_IDENTITY=
+++ FM_WATCHER_HEALTHY_PID=
+++ FM_WATCHER_HEALTHY_IDENTITY=
+++ FM_WATCHER_VERDICT_OK=false
+++ FM_WATCHER_VERDICT_REASON=stale-beacon
+++ FM_RECOVERY_MARKER_TOKEN=
+++ FM_RECOVERY_MARKER_ACTION=none
+++ FM_RECOVERY_MARKER_WRITTEN_TOKEN=
+++ FM_WAKE_APPEND_RECOVERY_PREVIOUS_TOKEN=
+++ FM_WAKE_APPEND_RECOVERY_PUBLISHED_TOKEN=
+++ FM_RECOVERY_HANDOVER_TOKEN=
+++ FM_RECOVERY_HANDOVER_SEQ=
+++ FM_WAKE_STATUS_KEY=
+++ FM_WAKE_STATUS_HISTORICAL=false
+++ FM_WAKE_EVENT_LINE=
+++ FM_WAKE_UNREAD_LINES=
++ . /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-classify-lib.sh
++++ d=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
++++ '[' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin '!=' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-classify-lib.sh ']'
++++ cd /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
++++ pwd
+++ _FM_CLASSIFY_LIB_DIR=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
+++ _FM_CLASSIFY_UNAME_S=Darwin
+++ FM_CREW_STATE_BIN=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-crew-state.sh
+++ case $- in
+++ _fm_classify_nounset=on
+++ . /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-timeout-lib.sh
++++ set -u
+++ '[' on = on ']'
+++ unset _fm_classify_nounset
+++ FM_CLASSIFY_CAPTAIN_RE_DEFAULT='done:|needs-decision:|blocked:|failed:|PR ready|checks green|ready in branch|merged'
+++ FM_CLASSIFY_PAUSED_VERB_DEFAULT=paused
+++ FM_PAUSE_RESURFACE_SECS_DEFAULT=14400
+++ FM_CLASSIFY_RESOLVE_VERB_DEFAULT=resolved
+++ FM_CLASSIFY_CAPTAIN_HELD_VERB_DEFAULT=captain-held
+++ FM_CLASSIFY_EVENT_WINDOW_LINES=200
+++ FM_CLASSIFY_RESERVED_KEY_PREFIXES_DEFAULT=pending-reply-
+++ FM_OPEN_DECISIONS_FOLD_VERSION=9
+++ FM_STATUS_SNAPSHOT_EVENT_LINE=
+++ FM_STATUS_SNAPSHOT_EVENT_MTIME=
+++ FM_STATUS_SNAPSHOT_EVENT_ENDPOINT=
+++ STATUS_PRESENTATION_REPORTED=
+++ STATUS_PRESENTATION_CLASSIFIED=
+++ _FM_CLASSIFY_KEYLESS_PHASE=$'\036default'
+++ FM_GATE_HUMAN_DECISION='ask-user: authority decision'
+++ FM_WORKTREE_WRITE_PRUNE='.git node_modules .venv venv __pycache__ .mypy_cache .pytest_cache .ruff_cache .tox target dist build .next .cache vendor'
+++ FM_WORKTREE_WRITE_MAXDEPTH=6
+++ FM_WORKTREE_WRITE_TIMEOUT=10
++ . /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-line-cap-lib.sh
+++ FM_LINE_CAP_DEFAULT=220
+++ FM_LINE_CAP_SUFFIX=' [truncated]'
++ . /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-timeout-lib.sh
+++ set -u
++ . /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lease-lib.sh
+++ FM_LEASE_REFUSE_EXIT=6
++++ d=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
++++ '[' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin '!=' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lease-lib.sh ']'
++++ cd /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
++++ pwd
+++ FM_LEASE_LIB_DIR=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
+++ FM_LEASE_GUARD_LOCK=
++ . /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-supervision-engine-lib.sh
+++ FM_SUPERVISION_ENGINES_VERIFIED=claude
+++ FM_SUPERVISION_HOST_COOLDOWN=300
+++ '[' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-supervision-engine-lib.sh = /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-drain.sh ']'
++ . /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-contract.sh
+++ set -u
+++++ dirname /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-contract.sh
++++ cd /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
++++ pwd
+++ FM_AFK_CONTRACT_DIR=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
+++ FM_ROOT=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1
+++ FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1
+++ FM_AFK_CONTRACT_STATE=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state
+++ . /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-classify-lib.sh
+++++ d=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
+++++ '[' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin '!=' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-classify-lib.sh ']'
+++++ cd /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
+++++ pwd
++++ _FM_CLASSIFY_LIB_DIR=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin
++++ _FM_CLASSIFY_UNAME_S=Darwin
++++ FM_CREW_STATE_BIN=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-crew-state.sh
++++ case $- in
++++ _fm_classify_nounset=on
++++ . /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-timeout-lib.sh
+++++ set -u
++++ '[' on = on ']'
++++ unset _fm_classify_nounset
++++ FM_CLASSIFY_CAPTAIN_RE_DEFAULT='done:|needs-decision:|blocked:|failed:|PR ready|checks green|ready in branch|merged'
++++ FM_CLASSIFY_PAUSED_VERB_DEFAULT=paused
++++ FM_PAUSE_RESURFACE_SECS_DEFAULT=14400
++++ FM_CLASSIFY_RESOLVE_VERB_DEFAULT=resolved
++++ FM_CLASSIFY_CAPTAIN_HELD_VERB_DEFAULT=captain-held
++++ FM_CLASSIFY_EVENT_WINDOW_LINES=200
++++ FM_CLASSIFY_RESERVED_KEY_PREFIXES_DEFAULT=pending-reply-
++++ FM_OPEN_DECISIONS_FOLD_VERSION=9
++++ FM_STATUS_SNAPSHOT_EVENT_LINE=
++++ FM_STATUS_SNAPSHOT_EVENT_MTIME=
++++ FM_STATUS_SNAPSHOT_EVENT_ENDPOINT=
++++ STATUS_PRESENTATION_REPORTED=
++++ STATUS_PRESENTATION_CLASSIFIED=
++++ _FM_CLASSIFY_KEYLESS_PHASE=$'\036default'
++++ FM_GATE_HUMAN_DECISION='ask-user: authority decision'
++++ FM_WORKTREE_WRITE_PRUNE='.git node_modules .venv venv __pycache__ .mypy_cache .pytest_cache .ruff_cache .tox target dist build .next .cache vendor'
++++ FM_WORKTREE_WRITE_MAXDEPTH=6
++++ FM_WORKTREE_WRITE_TIMEOUT=10
+++ FM_AFK_CONTRACT_VERSION=2
+++ FM_AFK_CONTRACT_READABLE_VERSIONS='1 2'
+++ FM_AFK_CONTRACT_REACH_ANNOUNCED='No phone channel is configured; anything that needs you waits for your return.'
+++ FM_AFK_CONTRACT_SPEND_DEFAULT=4
+++ FM_AFK_CONTRACT_QUIET_HOLDS_NOTHING='you are present, so nothing waits for your return: every action you ask for, a local landing or a merge included, proceeds now under ordinary attended authority, and quiet mode changes only which updates reach this conversation.'
+++ _FM_AFK_CONTRACT_LOCK_TIMEOUT=120
+++ FM_AFK_CONTRACT_LOCK_HELD=
+++ '[' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-contract.sh = /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-drain.sh ']'
++ DRAIN_TMP=
++ DRAIN_VIEW_TMP=
++ DRAIN_LOCK_HELD=false
++ RAW_ROWS=
++ RECOVERY_MARKER=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.watcher-down
++ RECOVERY_MARKER_TOKEN=
++ RECOVERY_ACK_REQUIRED=false
++ RECOVERY_ACK_MOVED=false
++ ACK_THROUGH=
++ ACK_GENERATION=
++ ACK_REMOVED=0
++ PRESENTED_MAX=0
++ ACK_FINGERPRINTS=
++ ACK_NOTICE_FINGERPRINTS=
++ PRESENTATION_LOCK_TIMEOUT=10
++ BRANCH_OUTCOMES_RC=0
++ case "$PRESENTATION_LOCK_TIMEOUT" in
+++ fm_lease_actor
+++ local actor=main
+++ case "$actor" in
+++ printf '%s\n' main
++ ACTOR=main
++ ELIGIBLE_ROWS_FILE=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.branch-eligible-rows
++ ELIGIBLE_OWNER_FILE=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.branch-eligible-owner
++ MAIN_ROWS_FILE=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.main-eligible-rows
++ case "${1:-}" in
++ '[' main '!=' branch ']'
++ BRANCH_OUTCOME_INDEX_VERSION=fm-branch-outcome-index-v1
++ BRANCH_OUTCOME_INDEX_MAX_BYTES=512
++ BRANCH_OUTCOME_INDEX_STATE=ok
++ BRANCH_OUTCOME_INDEX_ENDPOINT=
++ BRANCH_OUTCOME_INDEX_IDENT=
++ STATUS_OUTCOME_BACKSTOP_ACKNOWLEDGED=
++ trap cleanup EXIT
++ trap 'exit 130' INT
++ trap 'exit 143' TERM
++ '[' -n '' ']'
++ fm_lock_acquire_wait_bounded /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock 10
++ local lockdir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock seconds=10 caller_pid rc owner_pid
++ case "$seconds" in
++ _fm_wake_require_timeout
++ command -v fm_run_timed
++ return 0
++ fm_lock_try_acquire /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++ local lockdir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock pid steal cur rc steal_owner primary_owner current
++ FM_LOCK_HELD_PID=
++ FM_LOCK_OWNER_DIR=
++ FM_LOCK_RECOVERED_PID=
++ fm_lock_try_create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++ local lockdir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock allowed_steal_owner= ownerdir
++ FM_LOCK_OWNER_DIR=
+++ fm_lock_owner_dir /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
+++ local lockdir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock lock_abs
++++ fm_lock_abs_path /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++++ local path=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock dir base
++++ fm_dirname_to dir /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++++ local fm_path=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++++ case "$fm_path" in
++++ fm_path=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++++ case "$fm_path" in
++++ fm_path=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state
++++ fm_path=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state
++++ '[' -n /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state ']'
++++ '[' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state '!=' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state ']'
++++ printf -v dir %s /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state
++++ fm_basename_to base /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++++ local fm_path=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++++ case "$fm_path" in
++++ fm_path=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++++ fm_path=.wake-queue.lock
++++ '[' .wake-queue.lock '!=' .wake-queue.lock ']'
++++ printf -v base %s .wake-queue.lock
+++++ cd /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state
+++++ pwd -P
++++ dir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state
++++ printf '%s/%s\n' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state .wake-queue.lock
+++ lock_abs=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
+++ mktemp -d /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.XXXXXX
++ ownerdir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.t4iDXH
++ '[' -e /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock ']'
++ fm_lock_discard_owner /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.t4iDXH
++ local ownerdir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.t4iDXH
++ '[' -n /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.t4iDXH ']'
++ fm_lock_clean_known_files /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.t4iDXH
++ local lockdir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.t4iDXH
++ rm -f /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.t4iDXH/pid /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.t4iDXH/fm-home /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.t4iDXH/pid-identity /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.t4iDXH/role /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.t4iDXH/watcher-path
++ rmdir /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.t4iDXH
++ return 1
++ fm_current_pid current
++ local fm_pid
+++ exec sh -c 'printf "%s\n" "$PPID"'
++ fm_pid=59839
++ case "$fm_pid" in
++ '[' 1 -gt 0 ']'
++ printf -v current %s 59839
+++ cat /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock/pid
++ pid=59081
++ '[' -n 59081 ']'
++ '[' 59081 = 59839 ']'
++ fm_pid_alive 59081
++ local pid=59081
++ case "$pid" in
++ kill -0 59081
++ FM_LOCK_HELD_PID=59081
++ return 1
++ fm_current_pid caller_pid
++ local fm_pid
+++ exec sh -c 'printf "%s\n" "$PPID"'
++ fm_pid=59839
++ case "$fm_pid" in
++ '[' 1 -gt 0 ']'
++ printf -v caller_pid %s 59839
++ fm_run_timed 10 env FM_STATE_OVERRIDE=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state FM_ROOT_OVERRIDE=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1 FM_LOCK_STALE_AFTER=2 bash -c '. "$1"; _fm_lock_acquire_wait_handoff "$2" "$3"' _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock 59839
++ rc=124
+++ cat /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock/pid
+++ true
++ owner_pid=
++ '[' '' = 59839 ']'
++ '[' 124 -ne 0 ']'
++ fm_lock_try_acquire /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++ local lockdir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock pid steal cur rc steal_owner primary_owner current
++ FM_LOCK_HELD_PID=
++ FM_LOCK_OWNER_DIR=
++ FM_LOCK_RECOVERED_PID=
++ fm_lock_try_create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++ local lockdir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock allowed_steal_owner= ownerdir
++ FM_LOCK_OWNER_DIR=
+++ fm_lock_owner_dir /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
+++ local lockdir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock lock_abs
++++ fm_lock_abs_path /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++++ local path=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock dir base
++++ fm_dirname_to dir /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++++ local fm_path=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++++ case "$fm_path" in
++++ fm_path=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++++ case "$fm_path" in
++++ fm_path=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state
++++ fm_path=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state
++++ '[' -n /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state ']'
++++ '[' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state '!=' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state ']'
++++ printf -v dir %s /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state
++++ fm_basename_to base /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++++ local fm_path=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++++ case "$fm_path" in
++++ fm_path=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
++++ fm_path=.wake-queue.lock
++++ '[' .wake-queue.lock '!=' .wake-queue.lock ']'
++++ printf -v base %s .wake-queue.lock
+++++ cd /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state
+++++ pwd -P
++++ dir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state
++++ printf '%s/%s\n' /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state .wake-queue.lock
+++ lock_abs=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock
+++ mktemp -d /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.XXXXXX
++ ownerdir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.1KFqpg
++ '[' -e /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock ']'
++ fm_lock_discard_owner /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.1KFqpg
++ local ownerdir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.1KFqpg
++ '[' -n /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.1KFqpg ']'
++ fm_lock_clean_known_files /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.1KFqpg
++ local lockdir=/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.1KFqpg
++ rm -f /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.1KFqpg/pid /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.1KFqpg/fm-home /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.1KFqpg/pid-identity /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.1KFqpg/role /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.1KFqpg/watcher-path
++ rmdir /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock.owner.1KFqpg
++ return 1
++ fm_current_pid current
++ local fm_pid
+++ exec sh -c 'printf "%s\n" "$PPID"'
++ fm_pid=59839
++ case "$fm_pid" in
++ '[' 1 -gt 0 ']'
++ printf -v current %s 59839
+++ cat /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock/pid
++ pid=59237
++ '[' -n 59237 ']'
++ '[' 59237 = 59839 ']'
++ fm_pid_alive 59237
++ local pid=59237
++ case "$pid" in
++ kill -0 59237
++ FM_LOCK_HELD_PID=59237
++ return 1
++ '[' 124 -eq 124 ']'
+++ cat /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/concurrent-1/state/.wake-queue.lock/pid
++ owner_pid=59237
++ case "$owner_pid" in
++ '[' 59237 -gt 0 ']'
++ fm_pid_alive 59237
++ local pid=59237
++ case "$pid" in
++ kill -0 59237
++ FM_LOCK_HELD_PID=59237
++ return 124
++ lock_rc=124
++ '[' 124 -eq 124 ']'
++ printf 'WAKE DRAIN SKIPPED: queue lock remains held by live pid %s after %ss; retry on the next drain.\n' 59237 10
++ exit 0
++ cleanup
++ local status=0
++ '[' -z '' ']'
++ '[' -z '' ']'
++ '[' false = true ']'
++ exit 0

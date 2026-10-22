@@ -1,0 +1,14 @@
+production command: fm_pid_identity "$2" arguments: ('21341',)
+exit: 0 output: proc-starttime=987654 cmdline-hex=62617368002f6f776e65642f776174636865722e736800 
+independent expected bytes: proc-starttime=987654 cmdline-hex=62617368002f6f776e65642f776174636865722e736800
+production command: fm_pid_identity "$2" arguments: ('21341',)
+exit: 0 output: proc-starttime=987654 cmdline-hex=62617368002f6f776e65642f776174636865722e736800 
+production command: fm_pid_identity "$2" arguments: ('21341',)
+exit: 0 output: proc-starttime=987655 cmdline-hex=62617368002f6f776e65642f776174636865722e736800 
+production command: fm_pid_identity_compare "$2" "$3" arguments: ('proc-starttime=987655 cmdline-hex=62617368002f6f776e65642f776174636865722e736800', 'proc-starttime=987654 cmdline-hex=62617368002f6f776e65642f776174636865722e736800')
+exit: 1 output:  
+production command: fm_pid_identity "$2" arguments: ('21341',)
+exit: 0 output: proc-starttime=987654 cmdline-hex=646966666572656e742d636f6d6d616e6400 
+production command: fm_pid_identity_compare "$2" "$3" arguments: ('proc-starttime=987654 cmdline-hex=646966666572656e742d636f6d6d616e6400', 'proc-starttime=987654 cmdline-hex=62617368002f6f776e65642f776174636865722e736800')
+exit: 1 output:  
+Observed: unchanged compatible /proc format; timezone-independent; changed start and command both rejected.

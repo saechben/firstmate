@@ -1,0 +1,22 @@
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/reclaim-lab
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/reclaim-lab
+
+exit=0
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh register lavish reclaim-source -- /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/reclaim-lab/blocker.sh /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/reclaim-lab/started /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/reclaim-lab/release
+registered: reclaim-source (lavish)
+
+exit=0
+OBSERVED: 24 concurrent public starts reclaim known-dead PID=96230 exactly once; marker='started\n'
+Contender exits=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+Captured results after releasing the winner=3 (later sequential starts are allowed)
+reclaim-source.2.result=race result
+
+reclaim-source.1.result=race result
+
+reclaim-source.3.result=race result
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh retire reclaim-source
+retired: reclaim-source
+
+exit=0
+PASS

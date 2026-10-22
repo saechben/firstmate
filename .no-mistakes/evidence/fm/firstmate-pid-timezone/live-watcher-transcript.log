@@ -1,0 +1,111 @@
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/watcher-lab
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/watcher-lab
+
+exit=0
+Actual watcher PID=44717 identity=ps-utc-v1=Wed Oct 21 21:09:04 2026     bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch.sh
+
+$ TZ=America/Argentina/Buenos_Aires ps -p 44717 -o lstart=
+Wed Oct 21 18:09:04 2026    
+
+exit=0
+$ TZ=America/Argentina/Buenos_Aires bash -c . "$1"; fm_watcher_healthy "$STATE" "$2" 300 "$FM_HOME" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch.sh
+
+exit=0
+$ TZ=Europe/Berlin ps -p 44717 -o lstart=
+Wed Oct 21 23:09:04 2026    
+
+exit=0
+$ TZ=Europe/Berlin bash -c . "$1"; fm_watcher_healthy "$STATE" "$2" 300 "$FM_HOME" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-wake-lib.sh /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch.sh
+
+exit=0
+OBSERVED: raw ps start changes by timezone; actual watcher remains healthy
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --restart
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --stop
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --take-over 44066
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --handling-delivered disposable --watcher-pid 44717
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+OBSERVED: legacy owner rejected every arm mode, preserved claim and feedback, and kept actual watcher alive
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --restart
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --stop
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --take-over 44066
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --handling-delivered disposable --watcher-pid 44717
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+OBSERVED: malformed owner rejected every arm mode, preserved claim and feedback, and kept actual watcher alive
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --restart
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --stop
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --take-over 44066
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --handling-delivered disposable --watcher-pid 44717
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+OBSERVED: empty owner rejected every arm mode, preserved claim and feedback, and kept actual watcher alive
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --restart
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --stop
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --take-over 44066
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --handling-delivered disposable --watcher-pid 44717
+watcher: FAILED - live watcher identity is unverifiable; preserving lock
+
+exit=1
+OBSERVED: missing owner rejected every arm mode, preserved claim and feedback, and kept actual watcher alive
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-watch-arm.sh --stop
+watcher: stopped pid=44717
+
+exit=0
+OBSERVED: restored verified owner is stoppable through public interface
+PASS

@@ -1,0 +1,84 @@
+
+SCENARIO: Real command changes and distinct starts reject stale ownership without signalling unrelated live processes
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh register-task lavish command-guard command-guard-task -- /bin/true
+exit=0
+registered: command-guard (lavish, task=command-guard-task)
+
+$ bash -c . "$1/bin/fm-wake-lib.sh"; . "$1/bin/fm-pr-lib.sh"; . "$1/bin/fm-procevent-lib.sh"; fm_procevent_source_lock_acquire "$3" || exit; fm_procevent_claim_acquire_locked "$3" "$FM_HOME" "$2" "$STATE/procevent/$3.source" "$STATE"; rc=$?; fm_procevent_source_lock_release "$3"; exit "$rc" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J 54954 command-guard
+exit=0
+
+$ /bin/ps -p 54954 -o lstart=
+exit=0
+Thu Oct 22 18:12:55 2026    
+
+Original recorded command: ps-utc-v1=Thu Oct 22 16:12:55 2026     bash -c while [ ! -f "$1" ]; do sleep 0.05; done; exec sleep 119 _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/live/guards/exec
+$ /bin/ps -p 54954 -o lstart=
+exit=0
+Thu Oct 22 18:12:55 2026    
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh list
+exit=0
+SOURCE                       ADAPTER      OWNER      PENDING
+command-guard                lavish       task:command-guard-task/dead 0
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh retire command-guard
+exit=0
+retired: command-guard
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh register-task lavish start-guard start-guard-task -- /bin/true
+exit=0
+registered: start-guard (lavish, task=start-guard-task)
+
+$ bash -c . "$1/bin/fm-wake-lib.sh"; . "$1/bin/fm-pr-lib.sh"; . "$1/bin/fm-procevent-lib.sh"; fm_procevent_source_lock_acquire "$3" || exit; fm_procevent_claim_acquire_locked "$3" "$FM_HOME" "$2" "$STATE/procevent/$3.source" "$STATE"; rc=$?; fm_procevent_source_lock_release "$3"; exit "$rc" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J 59088 start-guard
+exit=0
+
+Prior identity: ps-utc-v1=Thu Oct 22 16:12:58 2026     sleep 120
+Later identity: ps-utc-v1=Thu Oct 22 16:13:00 2026     sleep 120
+$ /bin/ps -p 57412 -o command=
+exit=0
+sleep 120
+
+$ /bin/ps -p 59088 -o command=
+exit=0
+sleep 120
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh list
+exit=0
+SOURCE                       ADAPTER      OWNER      PENDING
+start-guard                  lavish       task:start-guard-task/dead 0
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh retire start-guard
+exit=0
+retired: start-guard
+
+Changed command and changed start both refused ownership; retire signalled neither live process.
+
+SCENARIO: Compatible proc records ignore wall-clock changes and detect reused starttime
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh register-task lavish proc-guard proc-guard-task -- /bin/true
+exit=0
+registered: proc-guard (lavish, task=proc-guard-task)
+
+$ bash -c . "$1/bin/fm-wake-lib.sh"; . "$1/bin/fm-pr-lib.sh"; . "$1/bin/fm-procevent-lib.sh"; fm_procevent_source_lock_acquire "$3" || exit; fm_procevent_claim_acquire_locked "$3" "$FM_HOME" "$2" "$STATE/procevent/$3.source" "$STATE"; rc=$?; fm_procevent_source_lock_release "$3"; exit "$rc" _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J 61378 proc-guard
+exit=0
+
+Stored compatible /proc identity: proc-starttime=987654 cmdline-hex=736c6565700031323000
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh list
+exit=0
+SOURCE                       ADAPTER      OWNER      PENDING
+proc-guard                   lavish       task:proc-guard-task/listening 0
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh list
+exit=0
+SOURCE                       ADAPTER      OWNER      PENDING
+proc-guard                   lavish       task:proc-guard-task/listening 0
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh list
+exit=0
+SOURCE                       ADAPTER      OWNER      PENDING
+proc-guard                   lavish       task:proc-guard-task/dead 0
+
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh retire proc-guard
+exit=0
+retired: proc-guard
+
+Disposable /proc data: wall-clock btime changed without ownership loss; changed starttime rejected and innocent process retained.

@@ -1,0 +1,6 @@
+[
+  {
+    "name": "Concurrent append and drain preserves every queued feedback record",
+    "result": "pass"
+  }
+]

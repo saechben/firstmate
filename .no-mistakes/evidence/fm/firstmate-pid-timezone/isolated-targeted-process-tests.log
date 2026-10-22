@@ -1,0 +1,418 @@
+FM_TEST_BEGIN 2026-10-22T17:02:57Z tests/fm-watcher-lock.test.sh family=watcher-wake-lock expected_gate_skip=none
+ok - disposable watcher refuses inherited state outside its marked lab
+ok - wait deadline diagnoses and reaps a stopped test child without hanging
+ok - simultaneous watcher starts leave exactly one live process
+ok - fm_pid_identity real ps fallback is locale-invariant
+ok - fm_pid_identity is locale-invariant across LC_ALL/LC_TIME
+ok - fm_pid_identity ps fallback is terminal-width-invariant
+ok - ps identity is timezone-stable and refuses real start/command changes and legacy identities
+ok - /proc process identity ignores simulated btime changes
+ok - /proc process identity detects pid reuse
+ok - MSYS /proc process identity regression skipped on non-Windows host
+ok - killed watcher stale lock is reclaimed
+tests/fm-watcher-lock.test.sh: line 1681: 72361 Killed: 9               FM_STATE_OVERRIDE="$state" bash -c '
+    . "$1"
+    fm_lock_remove_path() {
+      if [ "$1" = "$STATE/.watch.lock" ]; then
+        kill -KILL "${BASHPID:-$$}"
+      fi
+      return 1
+    }
+    fm_lock_try_acquire "$2"
+  ' _ "$LIB" "$lockdir" > /dev/null 2>&1
+ok - stale watcher reclaim publishes durable recovery evidence before clear
+ok - live watcher lock with stale heartbeat is actionable
+ok - live watcher lock with a beacon past the hard bound is replaced, under it is still refused
+ok - guard banner leads when down with pending wakes (repair-after-drain) and stays silent when live and fresh
+ok - concurrent fm_lock_try_acquire yields exactly one winner
+ok - dead-pid stale lock is reclaimed by a single acquirer
+tests/fm-watcher-lock.test.sh: line 607: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/tmp/fm-watcher-lock-tests.JzQUdN/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/tmp/fm-watcher-lock-tests.JzQUdN/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/tmp/fm-watcher-lock-tests.JzQUdN/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/tmp/fm-watcher-lock-tests.JzQUdN/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/tmp/fm-watcher-lock-tests.JzQUdN/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/tmp/fm-watcher-lock-tests.JzQUdN/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/tmp/fm-watcher-lock-tests.JzQUdN/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/tmp/fm-watcher-lock-tests.JzQUdN/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/tmp/fm-watcher-lock-tests.JzQUdN/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/tmp/fm-watcher-lock-tests.JzQUdN/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/tmp/fm-watcher-lock-tests.JzQUdN/lock-stale-concurrency/first-winner: Interrupted system call
+tests/fm-watcher-lock.test.sh: line 607: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/tmp/fm-watcher-lock-tests.JzQUdN/lock-stale-concurrency/first-winner: Interrupted system call
+ok - concurrent stale-lock steal yields exactly one winner
+ok - dead steal owner is reclaimed once without a nested steal marker
+ok - dead nested steal chain from an interrupted reclaim is recovered
+ok - a competing reaper cannot remove the successor's steal mutex
+ok - a steal mutex abandoned by this process does not block its own reclaim
+ok - a steal reap interrupted in this process is resumed from its own tombstone
+ok - live steal mutex is not reclaimed
+ok - live-held lock is not stolen
+ok - empty mid-acquire lock keeps a minimum grace
+ok - late original claimant cannot claim a recreated lock
+ok - paused mid-acquire claimant backs off to active stealer
+ok - watcher (legacy, directory): all arm actions preserve the unverifiable live claim
+ok - watcher (legacy, symlink): all arm actions preserve the unverifiable live claim
+ok - watcher (malformed, directory): all arm actions preserve the unverifiable live claim
+ok - watcher (malformed, symlink): all arm actions preserve the unverifiable live claim
+ok - watcher (empty, directory): all arm actions preserve the unverifiable live claim
+ok - watcher (empty, symlink): all arm actions preserve the unverifiable live claim
+ok - watcher (missing, directory): all arm actions preserve the unverifiable live claim
+ok - watcher (missing, symlink): all arm actions preserve the unverifiable live claim
+ok - watcher (unavailable, directory): all arm actions preserve the unverifiable live claim
+ok - watcher (unavailable, symlink): all arm actions preserve the unverifiable live claim
+ok - watch restart preserves recovery without signaling a reused pid
+not ok - restart did not attach to the verified healthy peer: watcher: started pid=13179 (beacon fresh)
+check: rearm-resurface
+FM_TEST_END 2026-10-22T19:24:50Z tests/fm-watcher-lock.test.sh exit=1 duration_ms=8512309 gate_skip=false
+FM_TEST_BEGIN 2026-10-22T19:24:50Z tests/fm-procevent.test.sh family=standalone expected_gate_skip=none
+ok - no configured source means no generated state and no process
+ok - new claims survive timezone changes; unknown legacy claims authorize neither replacement nor stop
+ok - one blocking completion yields exactly one bounded normalized event
+ok - a home reached through a symlinked ancestor runs its sources normally
+not-autohandled: direct-src (left for the handler; still unacknowledged)
+ok - public start owns the process group recorded by its claim
+ok - public start never claims an inherited caller process group
+ok - an unhandled result survives restart and repeat drains, and only explicit acknowledgement stops its re-announcement
+ok - publication cannot race a handled acknowledgement
+ok - handled acknowledgement creation is private and fails safely
+ok - automatic application waits for durable publication and failed publication remains recoverable
+ok - a self-announcing adapter applies quietly and still publishes what it could not apply
+not-autohandled: ends-src (left for the handler; still unacknowledged)
+ok - an adapter-classified terminal result is captured once, announced, and retires its source automatically
+not-autohandled: open-src (left for the handler; still unacknowledged)
+ok - a source stays armed unless its own adapter classifies the result terminal
+not-autohandled: replace-src (left for the handler; still unacknowledged)
+ok - terminal retirement preserves and releases a concurrently replaced registration
+ok - failed terminal retirement is fail-closed and idempotently recoverable
+ok - one Send & End yields exactly one captured result, automatic retirement, and no recurring poll
+ok - an empty board close is captured and recorded handled without ever waking the captain
+ok - worker board replies and recovered listeners derive their server from the board session
+ok - worker-owned Lavish rounds deliver to the worker, acknowledge on re-arm, and stop at session end
+ok - a capture interrupted before its result commit does not wedge its source
+ok - an orphaned capture is not acknowledged by a worker it never reached
+ok - a worker-owned board is only armed for an owner its feedback can reach
+ok - an acknowledged note is never resurrected and stops ringing across repeated reconciles
+ok - acknowledging a terminal round concludes that round only
+ok - an interrupted conclude leaves the ended board unpollable and finishes on retry
+ok - a re-arm that cannot acknowledge its round leaves the running generation alone
+ok - a worker-owned board is armed once and re-armed only to acknowledge an open round
+ok - a board close carrying the captain's real answer is still announced
+ok - the shipped poll governor bounds an instantly returning source
+ok - a transient Lavish poll interruption is retried quietly and never announced
+ok - a staged worker reply is handed to the board once across quiet poll retries
+ok - a listener whose staged reply is gone polls the board without one
+ok - a listener that refuses its own setup leaves the staged reply for the next one
+ok - a listener whose artifact vanished leaves the staged reply for the next one
+ok - an interruption that outlives the bounded retries is captured and announced
+ok - only the exact interruption is retried; an unrelated SERVER_ERROR still surfaces
+ok - only the literal two-line interruption enters the quiet retry policy
+ok - arm rejects malformed and out-of-range retry delays before registration
+ok - poll cleanup safely handles an apostrophe-containing TMPDIR
+ok - Lavish classification staging stays bounded while nonmatches stream
+ok - a drained-but-unhandled result survives a replacement session and is retired only by explicit handling, never twice
+ok - pending results preserve numeric order and distinct wake identity
+ok - one owner per canonical source across homes
+ok - retiring a never-completing source stops its runner and its blocked child
+ok - reconcile reaps a runner whose source registration is gone
+not-autohandled: stale-src (left for the handler; still unacknowledged)
+ok - stale-owner recovery removes abandoned output without displacing a live owner
+not-autohandled: cross-home-src (left for the handler; still unacknowledged)
+ok - cross-home stale recovery removes abandoned output from the old state directory
+not-autohandled: race-src (left for the handler; still unacknowledged)
+ok - concurrent stale-claim replacement starts exactly one runner
+ok - an ambiguous leaderless group is preserved without replacement
+ok - a truly dead generation with no surviving group is still safely reclaimed
+ok - reconcile reclaims a dead generation whose state-root identity no longer matches
+ok - retire releases a dead generation's claim instead of refusing forever
+ok - a live generation is never reclaimed, drifted state root or not
+ok - a reused pid never makes its surviving process group reclaimable
+ok - start reclaims a reused-pid claim whose leftovers can still be tidied
+ok - a launch that cannot confirm is announced once per failure episode
+ok - a 64-char source id keeps the launch-failed key within the watcher's marker bound
+ok - reconcile reports a launch it could not confirm instead of counting it as a start
+ok - a launch that finished before confirmation looked is still reported as started
+ok - a zero-padded launch confirm window is honored as base 10
+ok - an unusable launch confirm window is refused by name instead of blamed on the sources
+ok - a dead generation whose leftovers cannot be tidied never keeps owning its source
+ok - claim replacement cannot produce a torn ownership snapshot
+ok - retirement and start share one serialized lifecycle boundary
+ok - detected PID reuse is refused before signalling
+ok - transient identity failure preserves the live source for retry
+ok - bounded home sweep preflights then retires every locally owned source
+ok - home sweep leaves foreign-home claims and runners untouched
+ok - home sweep refuses safely until runner identity is readable
+ok - healthy runtime behavior remains registration-only
+ok - registration rejects unrepresentable newline arguments
+ok - nonzero exit with no output stays armed and silent
+ok - oversized output is bounded rather than published whole or dropped
+ok - live output stays bounded and retirement reaps the whole source group
+ok - stop mismatch evidence preserves the proved-stop boundary
+ok - stop unreadable evidence preserves the proved-stop boundary
+ok - stop unreadable-pgid evidence preserves the proved-stop boundary
+ok - stop nonleader evidence preserves the proved-stop boundary
+ok - invalid output bounds fail closed
+ok - the adapter derives physical identity without newline path corruption
+ok - source-only homes trigger the general supervision guard
+ok - the adapter classifies published poll output safely
+ok - poll derives host and port from the artifact session, not ambient or configured routing
+ok - quiet retries use the board session regardless of configuration changes
+ok - missing or unreadable session routing preserves replies and never guesses another server
+ok - the adapter owns which Lavish results end a source, and payload text cannot forge one
+ok - the adapter owns which Lavish results are silent, and fails closed on everything else
+ok - read distinguishes a live captain message from a session-ending message
+ok - read names the message count with the same label as the message section
+ok - read presents every annotation and a distinct session-ending message
+ok - read never certifies rows missing declared fields as complete
+ok - read keeps every annotation when the session-ending message is absent
+ok - read surfaces a typed comment on an annotated element
+ok - read still surfaces a typed comment that matches the element text
+ok - read still presents a pure annotation with no comment
+ok - read does not present choice context as a comment
+ok - read still presents a pure message with no selector
+ok - read distinguishes a feedback capture from an ended-with-nothing close
+ok - read presents list-form items with nested targets, attachments, and multi-line prompts
+ok - read never certifies malformed list-form items as complete
+ok - read never reports a declared-but-unparsed block as complete
+ok - answers reads list-form choices and refuses a block it cannot account for
+ok - an adapter with no silence verdict keeps announcing every result
+ok - the published interfaces state the loss limitation and claim no lossless delivery
+registered: floor-src (lavish)
+ok - an orphaned source command obeys the launch floor during its grace window
+ok - a replacement registration starts with one fresh launch floor
+ok - a superseded sleeping runner cannot recreate stale pacing state
+ok - post-commit pacing cleanup cannot veto registration publication
+ok - a pre-reboot monotonic stamp is treated as expired
+ok - an expired owner lease stops a self-relaunching source generation
+ok - a recreated state path does not preserve the old runner
+registered: guard-fail-src (lavish)
+ok - a runner fails closed when its owner guard cannot initialize
+registered: attached-src (lavish)
+ok - a foreground start refreshes its lease while its caller remains attached
+ok - wall-clock corrections do not alter owner lease age
+registered: detached-attached-src (lavish)
+ok - an attached-start keeper stops refreshing after its parent exits
+ok - a detected ambiguous reused-PID group is not signalled
+ok - a detached listener starts reparented, with a live descendant tree under it
+ok - a listener whose owning session is gone stops itself and its whole process group
+ok - reaping the listener stops the process churn under it
+ok - an identical listener in a home whose session is still there is untouched
+ok - retiring a source reaps its reparented listener and every descendant under it
+ok - a stop the guard cannot prove is retried until the expired runner is reaped
+ok - retirement escalates after TERM leaves a surviving child (absent leader)
+ok - retirement escalates after TERM leaves a surviving child (zombie leader)
+ok - an expired runner's guard escalates past a signal-proof child
+guard phase: fresh read 6.332-6.349s, expiry 8s, two full intervals could not finish before 18.332s (deadline 17s)
+guard bound: lease=7s check=6s reaped 13.0s after the last owner activity, documented bound 15s
+ok - an orphaned runner is reaped within the lease plus ONE check interval
+decimal interval: 08 halves to 4s and its listener started
+decimal interval: 010 halves to 5s and its listener started
+ok - a zero-prefixed decimal interval starts its listener and halves as decimal
+ok - one unreadable read does not end a live runner
+ordinary stop: start status=143 retirement=449ms sampled windows=3103/3670ms
+ok - a runner exits on the ordinary stop signal instead of outliving it
+ok - a group whose leader died to something else is still refused, not signalled
+ok - arm reports ready only after the listener is running
+ok - arm waits out a delayed listener start before reporting ready
+ok - arm fails when the listener cannot claim, and leaves the registration retire refused
+ok - arm waits out the confirm window before reporting that the listener is not running
+ok - re-arm over a live earlier listener reports it still serving the board
+ok - older compatible Lavish versions retain the poll-with-reply behavior
+ok - a refused synchronous reply fails arm before source registration
+ok - a refused synchronous reply leaves the same arm retryable
+ok - an arm refused for ownership, round, or endpoint never posts its reply
+ok - direct poll confirms a new-version reply before polling
+ok - an unknown Lavish version fails arm and poll closed, keeping the staged reply
+ok - arm posts and confirms the staged reply before reporting listener readiness
+ok - re-arm launches the new generation once a draining earlier claim is released
+ok - arm does not launch beside a stale claim whose process group is alive
+
+all procevent tests passed
+FM_TEST_END 2026-10-22T19:34:49Z tests/fm-procevent.test.sh exit=0 duration_ms=599376 gate_skip=false
+FM_TEST_BEGIN 2026-10-22T19:34:49Z tests/fm-claude-stop-autoarm.test.sh family=standalone expected_gate_skip=none
+ok - auto-arm: inert in a linked child worktree even when in-flight
+ok - auto-arm: inert with no session lock
+ok - auto-arm: a demonstrably dead recorded session owner is reclaimed through fm-lock.sh before arming
+ok - auto-arm: inert without arm, rewake, or lock replacement when another live harness owns the home
+ok - auto-arm: inert while AFK owns supervision
+ok - auto-arm: stale-owner recovery leaves the AFK and supervision-need gates unchanged
+ok - auto-arm: resolves the outermost pid of a nested contiguous claude ancestry (bg-spare chain)
+ok - auto-arm: inert with nothing in flight and no X-mode need
+ok - auto-arm: actionable close translates to exactly one exit-2 rewake with reason
+ok - auto-arm: actionable close survives a healthy successor without duplicate delivery
+ok - auto-arm: an attached cycle's end starts a handling successor named after the closed arm before the rewake
+ok - auto-arm: an unconfirmed handling successor is reported in the rewake instead of blocking it
+ok - auto-arm: bounded failure verification emits one automatic-mechanism alarm
+ok - auto-arm: consecutive failures keep Stop-owned retry without repeating notice
+ok - auto-arm: marker-write refusal defers delivery until one successor commits the notice
+ok - auto-arm: unverified clean close exhausts retries and fails closed
+ok - auto-arm: post-alarm actionable outcomes cannot continue or reset failure state
+ok - auto-arm: benign cycle end with a live watcher and fresh beacon stays silent across the next cycle
+ok - auto-arm: budget contention preserves the episode and forces a reset retry
+ok - auto-arm: owner-mutex contention preserves successor episode state
+ok - auto-arm: X-mode poll need arms the cycle even with no tasks in flight
+ok - auto-arm: a registered custom check arms the cycle even with no tasks in flight
+ok - auto-arm: concurrent firings admit one owner and one rewake translation
+ok - auto-arm: TERM mid-arm commits a durable failure and exits 2 for rewake
+ok - auto-arm: an abandoned owner claim is reclaimed so a lapsed cycle re-arms
+ok - auto-arm: an abandoned-claim reclaim reaps a dead steal mutex without nesting
+ok - auto-arm: a legacy owner still arming is never reclaimed while its watcher keeps beating
+ok - auto-arm: a fresh legacy arming claim is never reclaimed while its startup window is still open
+ok - auto-arm: a live claim the ledger does not name is never reclaimed
+ok - auto-arm: a claim whose pid was reused is reclaimed even while its ledger entry still reads arming
+ok - auto-arm: a reused-pid claim is reclaimed even with no ledger entry to prove it
+ok - auto-arm: an identity-matched owner still arming is never reclaimed
+ok - auto-arm: the guard's terminal-check claim is never reclaimed
+ok - auto-arm: a stuck live legacy owner is retired via TERM and its lock reclaimed
+ok - auto-arm: a SIGSTOPped legacy owner is reclaimed with TERM pending and dies on continue
+ok - auto-arm: a live open generation claim defers concurrent firings with no lock held
+ok - auto-arm: a hung generation owner with no watcher beat is superseded so re-arming self-heals
+ok - auto-arm: a dead session's orphaned open claim is superseded so the replacement session delivers the wake
+ok - auto-arm: a resumed session with the dead session's id still supersedes its orphaned claim
+ok - auto-arm: a claim is open only under a numeric session lock its owner descends from
+ok - auto-arm: a recycled-bridge claim stays open on its recorded session id and lock-holder identity, and nothing else does
+ok - auto-arm: an identityless arming ledger never defers the gate (reused-pid loophole closed)
+ok - unknown legacy identities preserve both generation claims and lock-holding owners
+ok - auto-arm: a superseded owner never re-invokes the arm and leaves its successor's claim untouched
+ok - auto-arm: a superseded owner goes silent - one supersession episode, one translation, no held mutex
+ok - auto-arm: need vanishing mid-cycle closes without a rewake
+ok - auto-arm: mid-cycle AFK hands triage to the daemon with no rewake
+ok - auto-arm: active in a marked secondmate home
+ok - auto-arm: a long FM_POLL with FM_GUARD_GRACE unset reaches fm-watch-arm.sh with the derived grace
+ok - auto-arm: config/supervision-host-off keeps the hook on the arm exactly as before
+ok - auto-arm: a Claude home without config/supervision-host runs the host by default
+ok - auto-arm: an opted-in home runs the host bound to its generation, and a host line rewakes like a wake
+ok - auto-arm: a wake the host hands back under the away record says it is automatic supervision, not a return
+ok - auto-arm: a wake the host hands back beside a quiet record carries no away note
+ok - auto-arm: without the host the rewake banner is unchanged, eight wake lines at most
+ok - auto-arm: a host handback delivers every host line, while its wake lines keep their cap
+ok - auto-arm: a host that stood down closes silently without a retry
+ok - auto-arm: a host rewake refused on an acknowledged marker opens no failure episode
+ok - auto-arm: a lost host hand-back notifies once per failure episode
+ok - auto-arm: a lost host hand-back on an announced marker notifies once per failure episode
+ok - auto-arm: a host that died without a close is retried, then reported as a failure
+ok - auto-arm: --help, -h, and an unknown argument arm nothing; the Stop path still arms
+ok - fm-lock: shared session-lock lib preserves the status path
+ok - auto-arm: stands down only on a pi-code-delivered transcript_path (/.pi/)
+FM_TEST_END 2026-10-22T19:36:01Z tests/fm-claude-stop-autoarm.test.sh exit=0 duration_ms=71678 gate_skip=false
+FM_TEST_BEGIN 2026-10-22T19:36:01Z tests/fm-wake-queue.test.sh family=watcher-wake-lock expected_gate_skip=none
+ok - an abandoned same-process lock hold is reclaimed; a parent's live hold is not
+ok - without BASHPID a subshell cannot release or reclaim its parent lock and owns its own hold
+ok - bounded acquire hands ownership to the waiting caller after contention
+ok - presentation lock waits are bounded and retriable without weakening acknowledgement atomicity
+ok - malformed presentation locks report acquire failure instead of contention
+tests/wake-helpers.sh: line 329: 78118 Killed: 9               PATH="$dir/fakebin:$PATH" FM_FAKE_NOW_FILE="$dir/now" FM_HOME="$dir" FM_ROOT_OVERRIDE="$ROOT" FM_STATE_OVERRIDE="$dir/state" FM_FAKE_TMUX_WINDOW='firstmate:fm-mate' FM_SECONDMATE_WAKE_STALL_SECS=1 FM_SECONDMATE_LIVENESS_SECS=99999999 FM_POLL=1 FM_SIGNAL_GRACE=0 FM_CHECK_INTERVAL=999999 FM_HEARTBEAT=999999 "$WATCH" > "$dir/watch-$leg.out" 2> "$dir/watch-$leg.err"
+tests/wake-helpers.sh: line 329: 79584 Killed: 9               PATH="$dir/fakebin:$PATH" FM_FAKE_NOW_FILE="$dir/now" FM_HOME="$dir" FM_ROOT_OVERRIDE="$ROOT" FM_STATE_OVERRIDE="$dir/state" FM_FAKE_TMUX_WINDOW='firstmate:fm-mate' FM_SECONDMATE_WAKE_STALL_SECS=1 FM_SECONDMATE_LIVENESS_SECS=99999999 FM_POLL=1 FM_SIGNAL_GRACE=0 FM_CHECK_INTERVAL=999999 FM_HEARTBEAT=999999 "$WATCH" > "$dir/watch-$leg.out" 2> "$dir/watch-$leg.err"
+tests/wake-helpers.sh: line 329: 85641 Killed: 9               PATH="$dir/fakebin:$PATH" FM_FAKE_NOW_FILE="$dir/now" FM_HOME="$dir" FM_ROOT_OVERRIDE="$ROOT" FM_STATE_OVERRIDE="$dir/state" FM_FAKE_TMUX_WINDOW='firstmate:fm-mate' FM_SECONDMATE_WAKE_STALL_SECS=1 FM_SECONDMATE_LIVENESS_SECS=99999999 FM_POLL=1 FM_SIGNAL_GRACE=0 FM_CHECK_INTERVAL=999999 FM_HEARTBEAT=999999 "$WATCH" > "$dir/watch-$leg.out" 2> "$dir/watch-$leg.err"
+ok - foreign secondmate queue alerts once per no-progress episode without age-only or cascade noise
+ok - declared external-wait pause rows do not feed secondmate wake-loop escalation
+ok - a reprovisioned queue generation starts a fresh no-progress interval
+ok - an active turn defers the secondmate stall escalation without cancelling it
+ok - a long-lived mate mid-turn is not a stall, but a queue frozen past the busy bound still alarms
+ok - a proven-idle leftover row is rung so the child home can drain without a parent alarm
+ok - TERM stops a watcher blocked in the drain-ring idle capture and runs its cleanup
+ok - busy panes defer without a ring and unknown panes keep the parent alarm
+ok - a leftover row that survives a proven-idle ring still surfaces as a genuine stall
+ok - secondmate stall markers reject symlinks without touching their targets
+ok - stall publication acknowledgement closes the pre-marker crash window
+ok - empty prefix mate cleanup preserves another mate's stall receipt
+ok - self-announced appends suppress only their own bytes and fail toward waking
+ok - separate self-announced answers after a fold stay owned; worker decisions and later lines still wake
+ok - an unreadable status still reads as unreported, with or without owned growth
+ok - a worker resolved in fold lag still wakes after this home's close
+ok - owned growth suppresses the wake without hiding the turn-ended annotation
+ok - historical annotations replay nothing already announced and keep everything new
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 37 --recovery-generation 28844.1792697837.wJFIIV
+ok - concurrent append plus drain preserves durable records through acknowledgement
+ok - signal written while no watcher runs is caught on next run
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 50039.1792697958.Tof73R
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no live watcher process holds this home lock (last beat: 2s ago).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  After draining queued wakes, repair missing watcher supervision according to the session-start block for this harness; do not use shell &.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+ok - stale wake is queued before suppressor state is advanced
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 52969.1792697962.sRy69A
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no live watcher process holds this home lock (last beat: 3s ago).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  After draining queued wakes, repair missing watcher supervision according to the session-start block for this harness; do not use shell &.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+ok - a not-provably-working stale wake is queued before its suppressor is advanced
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 55120.1792697965.1czVtZ
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 registered custom check(s), but no live watcher process holds this home lock (last beat: 1s ago).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  After draining queued wakes, repair missing watcher supervision according to the session-start block for this harness; do not use shell &.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+ok - registered custom check output is queued before cadence suppression
+ok - concurrent drains replay until one post-handling acknowledgement consumes records
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 4 --recovery-generation 59485.1792697969.yZRwXz
+ok - drain collapses obvious duplicate heartbeat and signal records
+ok - drain asserts watcher liveness: warns on a lapse, stays silent for a live watcher with a fresh beacon
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 8 --recovery-generation 61177.1792697971.dJod24
+ok - structural signal enrichment is separate, deduped, home-local, and tier-zero for other wakes
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 13 --recovery-generation 62314.1792697973.Dxc5U7
+ok - every readable unread status line is annotated in full while invalid status files preserve their raw wakes
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 65543.1792697978.plZSX0
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 2 --recovery-generation 65543.1792697978.plZSX0
+ok - slow annotation releases the append lock and a deleted status file fails open
+ok - a branch-actor scoped ack never swallows an unacked main-owned row, and main's later drain sees exactly what remains
+ok - main drain and acknowledgement exclude an active branch grant
+ok - a branch-actor acknowledgement commits secondmate stall receipts for exactly its granted rows
+ok - a branch-held row raises no queued-wake warning for main, and the same row is presented and acknowledged once the grant clears
+ok - a queue that cannot be counted keeps the queued-wake alarm up
+ok - structurally unusable rows are retired by main alone, leaving every remaining row presentable and acknowledgeable
+ok - branch grant cannot take a row already claimed by main
+ok - main's acknowledgement leaves a row that arrived after its drain for whichever actor takes it next
+ok - actor ownership filtering precedes same-key deduplication
+ok - main reclaims rows granted to an exited branch owner
+ok - unknown legacy branch ownership authorizes neither grant reclamation nor row consumption
+ok - a branch-actor drain with no eligible-row snapshot refuses loudly instead of draining nothing
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation existing
+ok - wake append publishes atomic recovery evidence before durable rows
+ok - recovery mint and delivery log avoid sibling $()
+ok - wake drain: generation-less legacy wakes are adopted and acknowledged
+ok - a handover undoes only the downtime its own stop published over an acknowledged episode
+ok - wake drain: a stale acknowledgement cannot retire or consume a newer recovery episode
+ok - wake drain: an acknowledgement that consumes nothing says so and names the exact command for the current wake
+ok - wake drain: a branch acknowledgement that consumes nothing names the exact command for its granted wake
+ok - wake drain: recovery acknowledgement failures are explicit and retryable
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 2 --recovery-generation 10958.1792698030.hgtS3b
+ok - interruptions preserve durable rows until post-handling acknowledgement
+ok - fm_wake_queue_prune_task: prunes wakes for target task without touching other tasks
+ok - drain rotates scratch files an interrupted drain left under the queue lock
+not ok - a confirmed-dead secondmate was not auto-relaunched: check: secondmate sm1 auto-relaunch failed after confirmed agent absence on existing endpoint: error: secondmate home cannot be inside the firstmate repo: /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase/tmp/fm-wake-tests.bxQprr/liveness-dead-mate
+FM_TEST_END 2026-10-22T19:40:40Z tests/fm-wake-queue.test.sh exit=1 duration_ms=278528 gate_skip=false
+FM_TEST_BEGIN 2026-10-22T19:40:40Z tests/fm-extension-binding.test.sh family=standalone expected_gate_skip=none
+ok - unknown extension conformance section selectors fail before setup
+error[path-unsafe]: package source must not be inside a Git project or task copy
+error[binding-failed]: error[path-unsafe]: package source must not be inside a Git project or task copy
+error[binding-failed]: error[path-unsafe]: package source must not be inside a Git project or task copy
+error[binding-failed]: error[path-unsafe]: package source must not be inside a Git project or task copy
+not ok - local bind returned no binding retirement identity
+error[adapter-unbound]: no home-local extension binding enables adapter: file-signal
+error[adapter-unbound]: no home-local extension binding enables adapter: ext-lock-order
+error: extension adapter verification failed: file-signal
+error: extension adapter verification failed: ext-lock-order
+error[binding-failed]: error[json-invalid]: package transfer is empty
+tests/fm-extension-binding.test.sh: line 410: 18407 Killed: 9               FM_EXTENSION_BINDING_SECTION_CHILD=1 FM_EXTENSION_BINDING_SEGMENT="$section" bash "$0"
+ok - the section coordinator propagates ordered failures and bounded cleanup
+not ok - an isolated extension conformance section failed
+FM_TEST_END 2026-10-22T19:40:45Z tests/fm-extension-binding.test.sh exit=1 duration_ms=5054 gate_skip=false
+FM_TEST_SUMMARY total=5 failed=3 skipped_gate=0 duration_ms=9467595
+FM_TEST_SUMMARY_FAMILY family=standalone count=3 duration_ms=676108 failed=1
+FM_TEST_SUMMARY_FAMILY family=watcher-wake-lock count=2 duration_ms=8790837 failed=2
+FM_TEST_SLOWEST rank=1 script=tests/fm-watcher-lock.test.sh duration_ms=8512309
+FM_TEST_SLOWEST rank=2 script=tests/fm-procevent.test.sh duration_ms=599376
+FM_TEST_SLOWEST rank=3 script=tests/fm-wake-queue.test.sh duration_ms=278528
+FM_TEST_SLOWEST rank=4 script=tests/fm-claude-stop-autoarm.test.sh duration_ms=71678
+FM_TEST_SLOWEST rank=5 script=tests/fm-extension-binding.test.sh duration_ms=5054
+fm-test-run: wrote timing artifact: /Users/benjaminsaechew/.no-mistakes/evidence/01M5G3W75FE75Q2N34Y93N373J/isolated-targeted-timing.json

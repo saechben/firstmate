@@ -1,0 +1,39 @@
+$ TZ=America/Argentina/Buenos_Aires /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/source-lab
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/source-lab
+
+exit=0
+$ TZ=America/Argentina/Buenos_Aires /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh register-task lavish timezone-source timezone-worker -- /bin/sleep 300
+registered: timezone-source (lavish, task=timezone-worker)
+
+exit=0
+$ TZ=America/Argentina/Buenos_Aires /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh list
+SOURCE                       ADAPTER      OWNER      PENDING
+timezone-source              lavish       task:timezone-worker/listening 0
+
+exit=0
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh list
+SOURCE                       ADAPTER      OWNER      PENDING
+timezone-source              lavish       task:timezone-worker/listening 0
+
+exit=0
+OBSERVED: same real source runner remains listening under both timezones
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh list
+SOURCE                       ADAPTER      OWNER      PENDING
+timezone-source              lavish       task:timezone-worker/uncertain 0
+
+exit=0
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh reconcile
+reconciled: published=0 started=0 stopped=0 uncertain=1 failed=0
+
+exit=0
+$ TZ=Europe/Berlin /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh retire timezone-source
+error: cannot confirm runner identity; source remains registered: timezone-source
+
+exit=1
+OBSERVED: unknown legacy claim stays uncertain, prevents replacement and signalling, and remains byte-identical
+$ TZ=America/Argentina/Buenos_Aires /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-procevent.sh retire timezone-source
+retired: timezone-source
+
+exit=0
+OBSERVED: verified fixture source retired through public interface
+PASS

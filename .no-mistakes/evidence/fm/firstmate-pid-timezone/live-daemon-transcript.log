@@ -1,0 +1,116 @@
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-lab-home.sh create /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/daemon-lab [TZ=Europe/Berlin]
+/Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/daemon-lab
+
+exit=0
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh enter --words disposable validation only [TZ=Europe/Berlin]
+Away posture recorded at 2026-10-21T21:00:56Z: hold-for-return only. No phone channel is configured; anything that needs you waits for your return. Your away instructions are recorded verbatim; the away session will carry them out where it can, and anything it is unsure of, or that needs you, waits for your return. Destructive, irreversible, and security-sensitive actions are never pre-authorizable, whatever the words say. Expected return: not given. Spend cap: 4 concurrent workers.
+Away posture (recorded):
+  entered: 2026-10-21T21:00:56Z
+  expected return: not given
+  spend cap: 4 concurrent workers
+  reach: hold-for-return only. No phone channel is configured; anything that needs you waits for your return.
+  your words (verbatim):
+    disposable validation only
+
+exit=0
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh start-native [TZ=Europe/Berlin]
+
+exit=0
+Actual daemon PID=14325 identity=ps-utc-v1=Wed Oct 21 21:00:56 2026     bash /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-supervise-daemon.sh
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh start-native [TZ=America/Argentina/Buenos_Aires]
+fm-afk-launch: daemon already running; refreshed away-mode flag
+
+exit=0
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh start-native [TZ=Europe/Berlin]
+fm-afk-launch: daemon already running; refreshed away-mode flag
+
+exit=0
+OBSERVED: actual daemon recognized across timezone changes without replacement
+$ bash -c . "$1"; fm_afk_launch_wait_ready tmux fm-lab-primary:0.0 _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh [TZ=Europe/Berlin]
+
+exit=0
+OBSERVED: readiness waited through missing identity; completed after 0.404s
+$ bash -c . "$1"; fm_afk_launch_wait_ready tmux fm-lab-primary:0.0 _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh [TZ=Europe/Berlin]
+
+exit=0
+OBSERVED: readiness waited through empty identity; completed after 0.476s
+$ bash -c . "$1"; fm_afk_launch_commit_terminal none - native 1 _ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving daemon terminal
+
+exit=2
+OBSERVED: deadline retained actual daemon and terminal record after 11.483s
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh start [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh start-native [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh stop [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh reconcile [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+OBSERVED: legacy actual-daemon identity refused all lifecycle actions and preserved feedback and claims
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh start [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh start-native [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh stop [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh reconcile [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+OBSERVED: malformed actual-daemon identity refused all lifecycle actions and preserved feedback and claims
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh start [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh start-native [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh stop [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh reconcile [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+OBSERVED: empty actual-daemon identity refused all lifecycle actions and preserved feedback and claims
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh start [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh start-native [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh stop [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh reconcile [TZ=Europe/Berlin]
+fm-afk-launch: live daemon identity is unverifiable; preserving lifecycle state
+
+exit=2
+OBSERVED: missing actual-daemon identity refused all lifecycle actions and preserved feedback and claims
+$ /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/bin/fm-afk-launch.sh stop [TZ=Europe/Berlin]
+fm-afk-launch: away-posture record archived at /Users/benjaminsaechew/.no-mistakes/worktrees/a6cc812fb86a/01M5G3W75FE75Q2N34Y93N373J/.test-phase-tmp/daemon-lab/state/afk-contracts/1792616456.afk-contract
+fm-afk-launch: away mode stopped; no daemon terminal was running, .afk cleared, and the posture record archived
+
+exit=0
+OBSERVED: verified stop shuts down actual daemon and clears away flag
+PASS: live daemon timezone, readiness publication/deadline, and ownership-preservation scenarios
