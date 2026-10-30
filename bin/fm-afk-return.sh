@@ -706,7 +706,7 @@ EOF
 
 return_reconcile() {
   local evidence blockers drain_err drained drain_ok=1 wake_ack_line wake_ack_through wake_ack_generation wedge escalations lifecycle_ok=1 since contract_since superseded_record retained_record
-  local archived_contract tag kind text retained_live restored_epoch
+  local archived_contract tag kind text retained_live restored_epoch brief
   evidence=$(mktemp "$STATE/.afk-return-evidence.XXXXXX") || return 1
   blockers=$(mktemp "$STATE/.afk-return-blockers.XXXXXX") || { rm -f "$evidence"; return 1; }
   drain_err=$(mktemp "$STATE/.afk-return-drain.XXXXXX") || { rm -f "$evidence" "$blockers"; return 1; }
@@ -855,7 +855,14 @@ EOF
     append_evidence lifecycle "status file unreadable: $STATUS_SCAN_ERROR; catch-up stays gated" "$evidence"
     lifecycle_ok=0
   fi
-  render_return_brief "$evidence" "$blockers" "$since" "$drain_ok"
+  # Bash 3.2 can leak buffered output from a failed printf into later command
+  # substitutions. Render to a file before publishing to the caller's stdout.
+  brief=$(mktemp "$STATE/.afk-return-brief.XXXXXX") || { rm -f "$evidence" "$blockers" "$drain_err"; return 1; }
+  if ! render_return_brief "$evidence" "$blockers" "$since" "$drain_ok" > "$brief" || ! cat "$brief"; then
+    append_evidence lifecycle 'return brief publication failed; retry catch-up before ordinary work' "$evidence"
+    lifecycle_ok=0
+  fi
+  rm -f "$brief"
   if [ "$HELD_READ_FAILED" -eq 1 ]; then
     append_evidence lifecycle "held set unreadable: $HELD_READ_PATH; catch-up stays gated" "$evidence"
     lifecycle_ok=0
