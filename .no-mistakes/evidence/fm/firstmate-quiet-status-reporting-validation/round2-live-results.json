@@ -1,0 +1,87 @@
+[
+  {
+    "name": "none",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "quiet-record",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "quiet-flag",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "quiet-both",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "away-record",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "away-flag",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "legacy-flag",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "empty-flag",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "unknown-flag",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "malformed-record",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "quiet-flag-away-record",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "away-flag-quiet-record",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "catchup",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "quiet-catchup",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "absent-home guard creates nothing",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "explicit quiet off archives posture and clears gate",
+    "result": "pass",
+    "live": true
+  },
+  {
+    "name": "read-only stdout retains wake and catch-up; retry replays until acknowledged",
+    "result": "pass",
+    "live": true
+  }
+]

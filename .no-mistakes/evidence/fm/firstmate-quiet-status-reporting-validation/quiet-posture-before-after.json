@@ -1,0 +1,14 @@
+{
+  "before": {
+    ".tasks.toml": "300d692c0909c1ce3cc3dadfda4d9283b388d87b3675f9c83eba9202c0116e04",
+    "state/.afk": "2445d988627915a1a552d85b28000caf3a9f9b4252830ba0ef05ae6cab1d0b42",
+    "state/.afk-contract": "82467d9ea72f31f5e9142ffd85f522328e3105a530fa51027c92c8c6a29d2cd8",
+    "data/backlog.md": "3fc291497c08262b54cc3a104a105bf69b156c8983e77757dcbf57dbce2b8286"
+  },
+  "after": {
+    ".tasks.toml": "300d692c0909c1ce3cc3dadfda4d9283b388d87b3675f9c83eba9202c0116e04",
+    "state/.afk": "2445d988627915a1a552d85b28000caf3a9f9b4252830ba0ef05ae6cab1d0b42",
+    "state/.afk-contract": "82467d9ea72f31f5e9142ffd85f522328e3105a530fa51027c92c8c6a29d2cd8",
+    "data/backlog.md": "3fc291497c08262b54cc3a104a105bf69b156c8983e77757dcbf57dbce2b8286"
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "git_ceiling_applied": false,
+    "exit": 0,
+    "stdout": "/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276\n",
+    "stderr": ""
+  },
+  {
+    "git_ceiling_applied": true,
+    "exit": 128,
+    "stdout": "",
+    "stderr": "fatal: not a git repository (or any of the parent directories): .git\n"
+  }
+]

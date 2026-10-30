@@ -1,0 +1,311 @@
+Target: 01356a6c3c3b2508e9a6389cbad12f22252a8bfd
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin26)
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/none
+exit=0
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/quiet-record
+exit=0
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/quiet-flag
+exit=0
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-contract.sh enter --words Keep the current supervision preference.
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/quiet-both
+exit=0
+Quiet mode recorded at 2026-10-30T19:41:46Z: you are present, so nothing waits for your return: every action you ask for, a local landing or a merge included, proceeds now under ordinary attended authority, and quiet mode changes only which updates reach this conversation. Only an explicit /quiet off ends it.
+Quiet mode (recorded):
+  entered: 2026-10-30T19:41:46Z
+  holds: none - you are present, so nothing waits for your return: every action you ask for, a local landing or a merge included, proceeds now under ordinary attended authority, and quiet mode changes only which updates reach this conversation.
+  your words (verbatim):
+    Keep the current supervision preference.
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/quiet-both
+exit=0
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-bearings-snapshot.sh --json
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/quiet-both
+exit=0
+{
+  "schema": "fm-bearings.v1",
+  "home": "live-homes/quiet-both",
+  "generated": "2026-10-30T19:41:47Z",
+  "prs": "not_requested (run: /bearings include PRs)",
+  "contributions": {
+    "scope": "owned contributions per home",
+    "known": 0,
+    "checked": 0,
+    "counts": {
+      "captain": 0,
+      "fleet": 0,
+      "maintainer": 0,
+      "nobody": 0
+    },
+    "complete": true,
+    "proven_clear": true,
+    "unmeasured_homes": 0,
+    "unreadable_records": 0,
+    "unmeasured": 0,
+    "stale_verdicts": 0,
+    "missing_verdicts": 0,
+    "captain_omitted": 0,
+    "captain": []
+  },
+  "in_flight": [],
+  "secondmates": [],
+  "secondmate_reconcile": [],
+  "decisions_open": [],
+  "landed": [],
+  "gates": [
+    {
+      "id": "quiet-status-example",
+      "title": "Review requested status",
+      "blocked_by": "-",
+      "reason": "-",
+      "owner": "(main)",
+      "filed": "2026-10-30"
+    }
+  ],
+  "reports": [],
+  "recorded_prs": [],
+  "omitted": [
+    {
+      "surface": "backlog item bodies",
+      "reveal": "--fields bodies"
+    },
+    {
+      "surface": "task paths",
+      "reveal": "--fields paths"
+    },
+    {
+      "surface": "watch/steer actions",
+      "reveal": "--fields actions"
+    },
+    {
+      "surface": "healthy endpoint detail",
+      "reveal": "--fields endpoints"
+    },
+    {
+      "surface": "full scout-report inventory",
+      "reveal": "--all-reports"
+    },
+    {
+      "surface": "live PR discovery + checks",
+      "reveal": "--include-prs"
+    }
+  ]
+}
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-bearings-snapshot.sh
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/quiet-both
+exit=0
+schema: fm-bearings.v1
+home: live-homes/quiet-both
+generated: "2026-10-30T19:41:47Z"
+prs: "not_requested (run: /bearings include PRs)"
+contributions: 
+  scope: owned contributions per home
+  known: 0
+  checked: 0
+  counts: 
+    captain: 0
+    fleet: 0
+    maintainer: 0
+    nobody: 0
+  complete: true
+  proven_clear: true
+  unmeasured_homes: 0
+  unreadable_records: 0
+  unmeasured: 0
+  stale_verdicts: 0
+  missing_verdicts: 0
+  captain_omitted: 0
+  captain: []
+in_flight: []
+secondmates: []
+secondmate_reconcile: []
+decisions_open: []
+landed: []
+gates[1]{id,title,blocked_by,reason,owner,filed}:
+  quiet-status-example,Review requested status,"-","-",(main),2026-10-30
+reports: []
+recorded_prs: []
+omitted[6]{surface,reveal}:
+  backlog item bodies,"--fields bodies"
+  task paths,"--fields paths"
+  watch/steer actions,"--fields actions"
+  healthy endpoint detail,"--fields endpoints"
+  full scout-report inventory,"--all-reports"
+  live PR discovery + checks,"--include-prs"
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/baseline-bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/quiet-both
+exit=3
+fm-afk-return: away mode is still active; run bin/fm-afk-return.sh before ordinary captain work
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/away-record
+exit=3
+fm-afk-return: away mode is still active; run bin/fm-afk-return.sh before ordinary captain work
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/away-flag
+exit=3
+fm-afk-return: away mode is still active; run bin/fm-afk-return.sh before ordinary captain work
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/legacy-flag
+exit=3
+fm-afk-return: away mode is still active; run bin/fm-afk-return.sh before ordinary captain work
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/empty-flag
+exit=3
+fm-afk-return: away mode is still active; run bin/fm-afk-return.sh before ordinary captain work
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/unknown-flag
+exit=3
+fm-afk-return: away mode is still active; run bin/fm-afk-return.sh before ordinary captain work
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/malformed-record
+exit=3
+fm-afk-return: away mode is still active; run bin/fm-afk-return.sh before ordinary captain work
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/quiet-flag-away-record
+exit=3
+fm-afk-return: away mode is still active; run bin/fm-afk-return.sh before ordinary captain work
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/away-flag-quiet-record
+exit=3
+fm-afk-return: away mode is still active; run bin/fm-afk-return.sh before ordinary captain work
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/catchup
+exit=4
+fm-afk-return: return catch-up is pending with no open blocker; clear the retention reason below, then run bin/fm-afk-return.sh check
+catch-up retained: retained return evidence
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-contract.sh enter --words Keep the current supervision preference.
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/quiet-catchup
+exit=0
+Quiet mode recorded at 2026-10-30T19:41:49Z: you are present, so nothing waits for your return: every action you ask for, a local landing or a merge included, proceeds now under ordinary attended authority, and quiet mode changes only which updates reach this conversation. Only an explicit /quiet off ends it.
+Quiet mode (recorded):
+  entered: 2026-10-30T19:41:49Z
+  holds: none - you are present, so nothing waits for your return: every action you ask for, a local landing or a merge included, proceeds now under ordinary attended authority, and quiet mode changes only which updates reach this conversation.
+  your words (verbatim):
+    Keep the current supervision preference.
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/quiet-catchup
+exit=4
+fm-afk-return: return catch-up is pending with no open blocker; clear the retention reason below, then run bin/fm-afk-return.sh check
+catch-up retained: retained return evidence
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-bearings-snapshot.sh --json
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/live-homes/quiet-catchup
+exit=0
+{
+  "schema": "fm-bearings.v1",
+  "home": "live-homes/quiet-catchup",
+  "generated": "2026-10-30T19:41:49Z",
+  "prs": "not_requested (run: /bearings include PRs)",
+  "contributions": {
+    "scope": "owned contributions per home",
+    "known": 0,
+    "checked": 0,
+    "counts": {
+      "captain": 0,
+      "fleet": 0,
+      "maintainer": 0,
+      "nobody": 0
+    },
+    "complete": true,
+    "proven_clear": true,
+    "unmeasured_homes": 0,
+    "unreadable_records": 0,
+    "unmeasured": 0,
+    "stale_verdicts": 0,
+    "missing_verdicts": 0,
+    "captain_omitted": 0,
+    "captain": []
+  },
+  "in_flight": [],
+  "secondmates": [],
+  "secondmate_reconcile": [],
+  "decisions_open": [],
+  "landed": [],
+  "gates": [
+    {
+      "id": "(return-catchup)",
+      "title": "catch-up retained: retained return evidence",
+      "blocked_by": "-",
+      "reason": "away-return catch-up",
+      "owner": "(main)",
+      "filed": null
+    },
+    {
+      "id": "quiet-status-example",
+      "title": "Review requested status",
+      "blocked_by": "-",
+      "reason": "-",
+      "owner": "(main)",
+      "filed": "2026-10-30"
+    }
+  ],
+  "reports": [],
+  "recorded_prs": [],
+  "omitted": [
+    {
+      "surface": "backlog item bodies",
+      "reveal": "--fields bodies"
+    },
+    {
+      "surface": "task paths",
+      "reveal": "--fields paths"
+    },
+    {
+      "surface": "watch/steer actions",
+      "reveal": "--fields actions"
+    },
+    {
+      "surface": "healthy endpoint detail",
+      "reveal": "--fields endpoints"
+    },
+    {
+      "surface": "full scout-report inventory",
+      "reveal": "--all-reports"
+    },
+    {
+      "surface": "live PR discovery + checks",
+      "reveal": "--include-prs"
+    }
+  ]
+}
+
+$ bash /Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/bin/fm-afk-return.sh guard
+FM_HOME=/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet/absent-home
+exit=0
+
+Persisted files before/after repeated quiet status reads:
+{
+  "before": {
+    ".tasks.toml": "300d692c0909c1ce3cc3dadfda4d9283b388d87b3675f9c83eba9202c0116e04",
+    "state/.afk": "2445d988627915a1a552d85b28000caf3a9f9b4252830ba0ef05ae6cab1d0b42",
+    "state/.afk-contract": "82467d9ea72f31f5e9142ffd85f522328e3105a530fa51027c92c8c6a29d2cd8",
+    "data/backlog.md": "3fc291497c08262b54cc3a104a105bf69b156c8983e77757dcbf57dbce2b8286"
+  },
+  "after": {
+    ".tasks.toml": "300d692c0909c1ce3cc3dadfda4d9283b388d87b3675f9c83eba9202c0116e04",
+    "state/.afk": "2445d988627915a1a552d85b28000caf3a9f9b4252830ba0ef05ae6cab1d0b42",
+    "state/.afk-contract": "82467d9ea72f31f5e9142ffd85f522328e3105a530fa51027c92c8c6a29d2cd8",
+    "data/backlog.md": "3fc291497c08262b54cc3a104a105bf69b156c8983e77757dcbf57dbce2b8286"
+  }
+}

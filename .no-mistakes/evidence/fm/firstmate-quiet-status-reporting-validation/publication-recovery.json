@@ -1,0 +1,42 @@
+[
+  {
+    "command": [
+      "fm-afk-return.sh",
+      "guard"
+    ],
+    "exit": 4,
+    "expected_exit": 4,
+    "stdout": "",
+    "stderr": "fm-afk-return: return catch-up is pending with no open blocker; clear the retention reason below, then run bin/fm-afk-return.sh check\ncatch-up retained: the durable gate recorded no retention reason\n"
+  },
+  {
+    "command": [
+      "fm-bearings-snapshot.sh",
+      "--json"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stdout": "{\n  \"schema\": \"fm-bearings.v1\",\n  \"home\": \".test-quiet/publication-target\",\n  \"generated\": \"2026-10-30T19:43:00Z\",\n  \"prs\": \"not_requested (run: /bearings include PRs)\",\n  \"contributions\": {\n    \"scope\": \"owned contributions per home\",\n    \"known\": 0,\n    \"checked\": 0,\n    \"counts\": {\n      \"captain\": 0,\n      \"fleet\": 0,\n      \"maintainer\": 0,\n      \"nobody\": 0\n    },\n    \"complete\": true,\n    \"proven_clear\": true,\n    \"unmeasured_homes\": 0,\n    \"unreadable_records\": 0,\n    \"unmeasured\": 0,\n    \"stale_verdicts\": 0,\n    \"missing_verdicts\": 0,\n    \"captain_omitted\": 0,\n    \"captain\": []\n  },\n  \"in_flight\": [],\n  \"secondmates\": [],\n  \"secondmate_reconcile\": [],\n  \"decisions_open\": [],\n  \"landed\": [],\n  \"gates\": [\n    {\n      \"id\": \"(return-catchup)\",\n      \"title\": \"away-return catch-up is still open\",\n      \"blocked_by\": \"-\",\n      \"reason\": \"away-return catch-up\",\n      \"owner\": \"(main)\",\n      \"filed\": null\n    }\n  ],\n  \"reports\": [],\n  \"recorded_prs\": [],\n  \"omitted\": [\n    {\n      \"surface\": \"backlog item bodies\",\n      \"reveal\": \"--fields bodies\"\n    },\n    {\n      \"surface\": \"task paths\",\n      \"reveal\": \"--fields paths\"\n    },\n    {\n      \"surface\": \"watch/steer actions\",\n      \"reveal\": \"--fields actions\"\n    },\n    {\n      \"surface\": \"healthy endpoint detail\",\n      \"reveal\": \"--fields endpoints\"\n    },\n    {\n      \"surface\": \"full scout-report inventory\",\n      \"reveal\": \"--all-reports\"\n    },\n    {\n      \"surface\": \"live PR discovery + checks\",\n      \"reveal\": \"--include-prs\"\n    }\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "fm-afk-return.sh",
+      "check"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stdout": "=== Return brief (away 2026-10-30T19:42:39Z -> 2026-10-30T19:43:02Z, 23s) ===\nSupervisor health:\n  - GAP: the watcher beat was 999999s old at return (grace 300s)\nYour instructions:\n  (no away instructions recorded)\n  the away session took no action under them.\nWaiting on you:\n  (nothing)\nTried and failed, or could not be fixed:\n  (nothing)\nLanded, cleanup due:\n  (nothing)\nHandled while away:\n  0 outcome(s) handled by the away session (0 routine, 0 escalated above)\n  (no routine outcomes recorded in the store for this window)\nCost: 0 supervision outcome(s) recorded (0 routine, 0 captain); 0 task(s) live at return.\ncatch-up health: GAP: the watcher beat was 999999s old at return (grace 300s)\nfm-afk-return: catch-up clear; ordinary captain work may proceed\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "fm-afk-return.sh",
+      "guard"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

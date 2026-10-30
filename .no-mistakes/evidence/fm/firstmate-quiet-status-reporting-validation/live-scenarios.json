@@ -1,0 +1,176 @@
+[
+  {
+    "scenario": "none",
+    "pass": true,
+    "checks": {
+      "guard_exit": true,
+      "report_exit": true,
+      "home_unchanged": true,
+      "catchup_visible": true,
+      "queued_work_visible": true
+    },
+    "guard_exit": 0,
+    "report_exit": 0
+  },
+  {
+    "scenario": "quiet-record",
+    "pass": true,
+    "checks": {
+      "guard_exit": true,
+      "report_exit": true,
+      "home_unchanged": true,
+      "catchup_visible": true,
+      "queued_work_visible": true
+    },
+    "guard_exit": 0,
+    "report_exit": 0
+  },
+  {
+    "scenario": "quiet-flag",
+    "pass": true,
+    "checks": {
+      "guard_exit": true,
+      "report_exit": true,
+      "home_unchanged": true,
+      "catchup_visible": true,
+      "queued_work_visible": true
+    },
+    "guard_exit": 0,
+    "report_exit": 0
+  },
+  {
+    "scenario": "quiet-both",
+    "pass": true,
+    "checks": {
+      "guard_exit": true,
+      "report_exit": true,
+      "home_unchanged": true,
+      "catchup_visible": true,
+      "queued_work_visible": true,
+      "default_status": true,
+      "base_reproduces_bug": true,
+      "posture_preserved_after_repeated_reads": true
+    },
+    "guard_exit": 0,
+    "report_exit": 0
+  },
+  {
+    "scenario": "away-record",
+    "pass": true,
+    "checks": {
+      "guard_exit": true,
+      "report_exit": true,
+      "home_unchanged": true
+    },
+    "guard_exit": 3,
+    "report_exit": 3
+  },
+  {
+    "scenario": "away-flag",
+    "pass": true,
+    "checks": {
+      "guard_exit": true,
+      "report_exit": true,
+      "home_unchanged": true
+    },
+    "guard_exit": 3,
+    "report_exit": 3
+  },
+  {
+    "scenario": "legacy-flag",
+    "pass": true,
+    "checks": {
+      "guard_exit": true,
+      "report_exit": true,
+      "home_unchanged": true
+    },
+    "guard_exit": 3,
+    "report_exit": 3
+  },
+  {
+    "scenario": "empty-flag",
+    "pass": true,
+    "checks": {
+      "guard_exit": true,
+      "report_exit": true,
+      "home_unchanged": true
+    },
+    "guard_exit": 3,
+    "report_exit": 3
+  },
+  {
+    "scenario": "unknown-flag",
+    "pass": true,
+    "checks": {
+      "guard_exit": true,
+      "report_exit": true,
+      "home_unchanged": true
+    },
+    "guard_exit": 3,
+    "report_exit": 3
+  },
+  {
+    "scenario": "malformed-record",
+    "pass": true,
+    "checks": {
+      "guard_exit": true,
+      "report_exit": true,
+      "home_unchanged": true
+    },
+    "guard_exit": 3,
+    "report_exit": 3
+  },
+  {
+    "scenario": "quiet-flag-away-record",
+    "pass": true,
+    "checks": {
+      "guard_exit": true,
+      "report_exit": true,
+      "home_unchanged": true
+    },
+    "guard_exit": 3,
+    "report_exit": 3
+  },
+  {
+    "scenario": "away-flag-quiet-record",
+    "pass": true,
+    "checks": {
+      "guard_exit": true,
+      "report_exit": true,
+      "home_unchanged": true
+    },
+    "guard_exit": 3,
+    "report_exit": 3
+  },
+  {
+    "scenario": "catchup",
+    "pass": true,
+    "checks": {
+      "guard_exit": true,
+      "report_exit": true,
+      "home_unchanged": true,
+      "catchup_visible": true,
+      "queued_work_visible": true
+    },
+    "guard_exit": 4,
+    "report_exit": 0
+  },
+  {
+    "scenario": "quiet-catchup",
+    "pass": true,
+    "checks": {
+      "guard_exit": true,
+      "report_exit": true,
+      "home_unchanged": true,
+      "catchup_visible": true,
+      "queued_work_visible": true
+    },
+    "guard_exit": 4,
+    "report_exit": 0
+  },
+  {
+    "scenario": "absent-home",
+    "pass": true,
+    "guard_exit": 0
+  }
+]

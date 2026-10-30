@@ -1,0 +1,282 @@
+FM_TEST_BEGIN 2026-10-30T21:22:33Z tests/fm-quiet-bearings-focused.test.sh family=unclassified expected_gate_skip=none
+not ok - PR repository truncation was not recorded: {
+  "schema": "fm-bearings.v1",
+  "home": "fm-bearings.FZl15M/repo-caps",
+  "generated": "2026-07-11T18:00:00Z",
+  "prs": "checked (2 repos, 2 open)",
+  "contributions": {
+    "scope": "owned contributions per home",
+    "known": 5,
+    "checked": 0,
+    "counts": {
+      "captain": 0,
+      "fleet": 5,
+      "maintainer": 0,
+      "nobody": 0
+    },
+    "complete": false,
+    "proven_clear": false,
+    "unmeasured_homes": 0,
+    "unreadable_records": 0,
+    "unmeasured": 0,
+    "stale_verdicts": 0,
+    "missing_verdicts": 0,
+    "captain_omitted": 0,
+    "captain": []
+  },
+  "in_flight": [
+    {
+      "id": "dead-1",
+      "kind": "scout",
+      "state": "unknown",
+      "repo": "repo-1",
+      "name": "dead-1",
+      "doing": "backend target gone: firstmate:fm-dead-1"
+    },
+    {
+      "id": "dead-2",
+      "kind": "scout",
+      "state": "unknown",
+      "repo": "repo-2",
+      "name": "dead-2",
+      "doing": "backend target gone: firstmate:fm-dead-2"
+    },
+    {
+      "id": "dead-3",
+      "kind": "scout",
+      "state": "unknown",
+      "repo": "repo-3",
+      "name": "dead-3",
+      "doing": "backend target gone: firstmate:fm-dead-3"
+    },
+    {
+      "id": "dead-4",
+      "kind": "scout",
+      "state": "unknown",
+      "repo": "repo-4",
+      "name": "dead-4",
+      "doing": "backend target gone: firstmate:fm-dead-4"
+    },
+    {
+      "id": "dead-5",
+      "kind": "scout",
+      "state": "unknown",
+      "repo": "repo-5",
+      "name": "dead-5",
+      "doing": "backend target gone: firstmate:fm-dead-5"
+    }
+  ],
+  "secondmates": [],
+  "secondmate_reconcile": [],
+  "decisions_open": [
+    {
+      "id": "decision-1",
+      "key": "decision-1",
+      "verb": "captain-hold",
+      "summary": "Decision 1: captain choice pending",
+      "owner": "(main)"
+    },
+    {
+      "id": "decision-2",
+      "key": "decision-2",
+      "verb": "captain-hold",
+      "summary": "Decision 2: captain choice pending",
+      "owner": "(main)"
+    },
+    {
+      "id": "decision-3",
+      "key": "decision-3",
+      "verb": "captain-hold",
+      "summary": "Decision 3: captain choice pending",
+      "owner": "(main)"
+    },
+    {
+      "id": "decision-4",
+      "key": "decision-4",
+      "verb": "captain-hold",
+      "summary": "Decision 4: captain choice pending",
+      "owner": "(main)"
+    },
+    {
+      "id": "decision-5",
+      "key": "decision-5",
+      "verb": "captain-hold",
+      "summary": "Decision 5: captain choice pending",
+      "owner": "(main)"
+    }
+  ],
+  "landed": [],
+  "gates": [
+    {
+      "id": "gate-1",
+      "title": "Gate 1",
+      "blocked_by": "task-1",
+      "reason": "-",
+      "owner": "(main)",
+      "filed": null
+    },
+    {
+      "id": "gate-2",
+      "title": "Gate 2",
+      "blocked_by": "task-2",
+      "reason": "-",
+      "owner": "(main)",
+      "filed": null
+    },
+    {
+      "id": "gate-3",
+      "title": "Gate 3",
+      "blocked_by": "task-3",
+      "reason": "-",
+      "owner": "(main)",
+      "filed": null
+    },
+    {
+      "id": "gate-4",
+      "title": "Gate 4",
+      "blocked_by": "task-4",
+      "reason": "-",
+      "owner": "(main)",
+      "filed": null
+    },
+    {
+      "id": "gate-5",
+      "title": "Gate 5",
+      "blocked_by": "task-5",
+      "reason": "-",
+      "owner": "(main)",
+      "filed": null
+    }
+  ],
+  "reports": [
+    {
+      "id": "dead-1",
+      "path": "/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet-tmp/fm-bearings.FZl15M/repo-caps/data/dead-1/report.md"
+    },
+    {
+      "id": "dead-2",
+      "path": "/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet-tmp/fm-bearings.FZl15M/repo-caps/data/dead-2/report.md"
+    },
+    {
+      "id": "dead-3",
+      "path": "/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet-tmp/fm-bearings.FZl15M/repo-caps/data/dead-3/report.md"
+    },
+    {
+      "id": "dead-4",
+      "path": "/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet-tmp/fm-bearings.FZl15M/repo-caps/data/dead-4/report.md"
+    },
+    {
+      "id": "dead-5",
+      "path": "/Users/benjaminsaechew/.no-mistakes/worktrees/1c8947d75240/01M67568PPD081WGPMF7D84276/.test-quiet-tmp/fm-bearings.FZl15M/repo-caps/data/dead-5/report.md"
+    }
+  ],
+  "recorded_prs": [
+    {
+      "id": "dead-1",
+      "url": "https://github.com/acme/repo-1/pull/1"
+    },
+    {
+      "id": "dead-2",
+      "url": "https://github.com/acme/repo-2/pull/2"
+    },
+    {
+      "id": "dead-3",
+      "url": "https://github.com/acme/repo-3/pull/3"
+    },
+    {
+      "id": "dead-4",
+      "url": "https://github.com/acme/repo-4/pull/4"
+    },
+    {
+      "id": "dead-5",
+      "url": "https://github.com/acme/repo-5/pull/5"
+    }
+  ],
+  "unhealthy_endpoints": [
+    {
+      "id": "dead-1",
+      "backend": "tmux",
+      "target": "firstmate:fm-dead-1",
+      "exists": false,
+      "agent": "not_checked"
+    },
+    {
+      "id": "dead-2",
+      "backend": "tmux",
+      "target": "firstmate:fm-dead-2",
+      "exists": false,
+      "agent": "not_checked"
+    },
+    {
+      "id": "dead-3",
+      "backend": "tmux",
+      "target": "firstmate:fm-dead-3",
+      "exists": false,
+      "agent": "not_checked"
+    },
+    {
+      "id": "dead-4",
+      "backend": "tmux",
+      "target": "firstmate:fm-dead-4",
+      "exists": false,
+      "agent": "not_checked"
+    },
+    {
+      "id": "dead-5",
+      "backend": "tmux",
+      "target": "firstmate:fm-dead-5",
+      "exists": false,
+      "agent": "not_checked"
+    }
+  ],
+  "candidate_prs": [
+    {
+      "num": "9",
+      "repo": "acme/repo-1",
+      "task": "ship-task",
+      "url": "https://github.com/kunchenguid/firstmate/pull/9",
+      "review": "APPROVED",
+      "mergeable": "MERGEABLE",
+      "checks": "passing"
+    },
+    {
+      "num": "9",
+      "repo": "acme/repo-2",
+      "task": "ship-task",
+      "url": "https://github.com/kunchenguid/firstmate/pull/9",
+      "review": "APPROVED",
+      "mergeable": "MERGEABLE",
+      "checks": "passing"
+    }
+  ],
+  "omitted": [
+    {
+      "surface": "backlog item bodies",
+      "reveal": "--fields bodies"
+    },
+    {
+      "surface": "task paths",
+      "reveal": "--fields paths"
+    },
+    {
+      "surface": "watch/steer actions",
+      "reveal": "--fields actions"
+    },
+    {
+      "surface": "healthy endpoint detail",
+      "reveal": "--fields endpoints"
+    },
+    {
+      "surface": "full scout-report inventory",
+      "reveal": "--all-reports"
+    },
+    {
+      "surface": "PR repositories showing 2 of 6",
+      "reveal": "--all-pr-repos"
+    }
+  ]
+}
+FM_TEST_END 2026-10-30T21:22:35Z tests/fm-quiet-bearings-focused.test.sh exit=1 duration_ms=1992 gate_skip=false
+FM_TEST_SUMMARY total=1 failed=1 skipped_gate=0 duration_ms=2114
+FM_TEST_SUMMARY_FAMILY family=unclassified count=1 duration_ms=1992 failed=1
+FM_TEST_SLOWEST rank=1 script=tests/fm-quiet-bearings-focused.test.sh duration_ms=1992
