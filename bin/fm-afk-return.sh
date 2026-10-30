@@ -8,6 +8,7 @@
 #   fm-afk-return.sh check    Re-render the brief and close the gate only after blockers resolve.
 #   fm-afk-return.sh guard    Read-only consult: exit 3 while away mode is still
 #                            active, exit 4 while return catch-up is pending.
+#                            Quiet mode alone permits reporting without ending it.
 #   fm-afk-return.sh catchup-summary  Read-only catch-up projection for a reporting surface.
 #
 # THE RETURN BRIEF (stdout, on begin and on every check) is rendered from durable
@@ -76,7 +77,7 @@ CONTRACT="$SCRIPT_DIR/fm-afk-contract.sh"
 . "$SCRIPT_DIR/fm-hold-reason-lib.sh"
 
 usage() {
-  sed -n '2,11p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
+  sed -n '2,12p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
 }
 
 clean_field() {
@@ -295,7 +296,12 @@ catchup_summary() {
 
 return_guard() {
   local reasons
-  if [ -e "$STATE/.afk" ] || fm_afk_contract_present "$STATE"; then
+  # Do not load fm-wake-lib.sh here: its initialization creates state. Read
+  # the legacy flag's exact quiet marker without that mutating initialization;
+  # the durable record's mode remains owned by fm-afk-contract.sh. Either
+  # source declaring away wins, including a damaged or legacy flag.
+  if { [ -e "$STATE/.afk" ] && [ "$(head -n 1 "$STATE/.afk" 2>/dev/null)" != quiet ]; } \
+    || fm_afk_contract_away_present "$STATE"; then
     printf 'fm-afk-return: away mode is still active; run bin/fm-afk-return.sh before ordinary captain work\n' >&2
     return 3
   fi
