@@ -316,7 +316,7 @@ test_away_reentry_refuses_pending_return_gate() {
 test_return_is_mode_agnostic_for_quiet_mode() {
   # kunchenguid/firstmate#2356's /quiet off calls this exact script, unchanged
   # - it must behave identically whether state/.afk declares "away" or
-  # "quiet", since return_guard/return_reconcile only ever test presence.
+  # "quiet"; explicit return still owns stopping either posture.
   local dir out
   dir="$TMP_ROOT/quiet-mode-return"
   install_runner "$dir"
@@ -878,6 +878,59 @@ test_statusful_leftover_record_lets_catchup_clear() {
   pass "a leftover record with a readable status file lets return catch-up clear"
 }
 
+test_reporting_guard_distinguishes_quiet_from_away() {
+  local dir scenario guard_rc snapshot_rc out expected
+  for scenario in none quiet-record quiet-flag quiet-both away-record away-flag legacy-flag empty-flag unknown-flag malformed-record quiet-flag-away-record away-flag-quiet-record catchup quiet-catchup; do
+    dir="$TMP_ROOT/reporting-$scenario"
+    install_runner "$dir"
+    case "$scenario" in
+      quiet-record|quiet-both|away-flag-quiet-record|quiet-catchup)
+        FM_AFK_MODE=quiet contract_in "$dir" enter >/dev/null || fail "quiet fixture failed" ;;
+      away-record|quiet-flag-away-record)
+        contract_in "$dir" enter >/dev/null || fail "away fixture failed" ;;
+      malformed-record) printf 'version: 2\n' > "$dir/home/state/.afk-contract" ;;
+    esac
+    case "$scenario" in
+      quiet-flag|quiet-both|quiet-flag-away-record|quiet-catchup) printf 'quiet\n123\n' > "$dir/home/state/.afk" ;;
+      away-flag|away-flag-quiet-record) printf 'away\n123\n' > "$dir/home/state/.afk" ;;
+      legacy-flag) printf '123\n' > "$dir/home/state/.afk" ;;
+      empty-flag) : > "$dir/home/state/.afk" ;;
+      unknown-flag) printf 'unknown\n' > "$dir/home/state/.afk" ;;
+    esac
+    case "$scenario" in
+      catchup|quiet-catchup) printf 'evidence\tlifecycle\tfixture retention\n' > "$dir/home/state/.afk-return-catchup" ;;
+    esac
+    cp -R "$dir/home" "$dir/before"
+    guard_rc=0
+    out=$(run_return "$dir" guard) || guard_rc=$?
+    case "$scenario" in
+      none|quiet-record|quiet-flag|quiet-both) expected=0 ;;
+      catchup|quiet-catchup) expected=4 ;;
+      *) expected=3 ;;
+    esac
+    [ "$guard_rc" -eq "$expected" ] || fail "$scenario guard rc=$guard_rc expected=$expected: $out"
+    diff -r "$dir/before" "$dir/home" >/dev/null || fail "$scenario guard mutated home"
+    snapshot_rc=0
+    out=$(FM_HOME="$dir/home" FM_STATE_OVERRIDE="$dir/home/state" FM_DATA_OVERRIDE="$dir/home/data" FM_CONFIG_OVERRIDE="$dir/home/config" \
+      bash "$ROOT/bin/fm-bearings-snapshot.sh" --json 2>&1) || snapshot_rc=$?
+    [ "$expected" -ne 4 ] || expected=0
+    [ "$snapshot_rc" -eq "$expected" ] || fail "$scenario snapshot rc=$snapshot_rc expected=$expected: $out"
+    if [ "$snapshot_rc" -eq 0 ]; then
+      printf '%s\n' "$out" | jq -e . >/dev/null || fail "$scenario snapshot was not JSON"
+      case "$scenario" in
+        *catchup) assert_contains "$out" '(return-catchup)' "$scenario hid catch-up" ;;
+        *) assert_not_contains "$out" '(return-catchup)' "$scenario invented catch-up" ;;
+      esac
+    fi
+    diff -r "$dir/before/state" "$dir/home/state" >/dev/null || fail "$scenario reporting mutated posture or worker state"
+  done
+  # A no-record guard must not even create a missing state directory.
+  dir="$TMP_ROOT/reporting-absent"
+  FM_HOME="$dir" FM_STATE_OVERRIDE="$dir/state" bash "$ROOT/bin/fm-afk-return.sh" guard || fail "absent home refused"
+  [ ! -e "$dir" ] || fail "guard created the absent home"
+  pass "reporting accepts quiet without mutating posture and preserves away and catch-up gates"
+}
+
 test_return_guard_refuses_while_the_record_exists() {
   local dir out rc
   dir="$TMP_ROOT/guard-record"
@@ -1353,6 +1406,7 @@ test_missing_final_archive_keeps_retained_contract_gated() {
   pass "the retained contract epoch requires its final archive on every check"
 }
 
+test_reporting_guard_distinguishes_quiet_from_away
 test_return_gate_owns_remediation_and_reports_catchup_to_bearings
 test_explicit_reclassification_requires_durable_reason
 test_captain_decision_does_not_masquerade_as_firstmate_blocker

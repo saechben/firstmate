@@ -8,6 +8,7 @@
 #   fm-afk-return.sh check    Re-render the brief and close the gate only after blockers resolve.
 #   fm-afk-return.sh guard    Read-only consult: exit 3 while away mode is still
 #                            active, exit 4 while return catch-up is pending.
+#                            Quiet mode alone permits reporting without ending it.
 #   fm-afk-return.sh catchup-summary  Read-only catch-up projection for a reporting surface.
 #
 # THE RETURN BRIEF (stdout, on begin and on every check) is rendered from durable
@@ -76,7 +77,7 @@ CONTRACT="$SCRIPT_DIR/fm-afk-contract.sh"
 . "$SCRIPT_DIR/fm-hold-reason-lib.sh"
 
 usage() {
-  sed -n '2,11p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
+  sed -n '2,12p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
 }
 
 clean_field() {
@@ -295,7 +296,12 @@ catchup_summary() {
 
 return_guard() {
   local reasons
-  if [ -e "$STATE/.afk" ] || fm_afk_contract_present "$STATE"; then
+  # Do not load fm-wake-lib.sh here: its initialization creates state. Read
+  # the legacy flag's exact quiet marker without that mutating initialization;
+  # the durable record's mode remains owned by fm-afk-contract.sh. Either
+  # source declaring away wins, including a damaged or legacy flag.
+  if { [ -e "$STATE/.afk" ] && [ "$(head -n 1 "$STATE/.afk" 2>/dev/null)" != quiet ]; } \
+    || fm_afk_contract_away_present "$STATE"; then
     printf 'fm-afk-return: away mode is still active; run bin/fm-afk-return.sh before ordinary captain work\n' >&2
     return 3
   fi
@@ -700,7 +706,7 @@ EOF
 
 return_reconcile() {
   local evidence blockers drain_err drained drain_ok=1 wake_ack_line wake_ack_through wake_ack_generation wedge escalations lifecycle_ok=1 since contract_since superseded_record retained_record
-  local archived_contract tag kind text retained_live restored_epoch
+  local archived_contract tag kind text retained_live restored_epoch brief
   evidence=$(mktemp "$STATE/.afk-return-evidence.XXXXXX") || return 1
   blockers=$(mktemp "$STATE/.afk-return-blockers.XXXXXX") || { rm -f "$evidence"; return 1; }
   drain_err=$(mktemp "$STATE/.afk-return-drain.XXXXXX") || { rm -f "$evidence" "$blockers"; return 1; }
@@ -849,7 +855,14 @@ EOF
     append_evidence lifecycle "status file unreadable: $STATUS_SCAN_ERROR; catch-up stays gated" "$evidence"
     lifecycle_ok=0
   fi
-  render_return_brief "$evidence" "$blockers" "$since" "$drain_ok"
+  # Bash 3.2 can leak buffered output from a failed printf into later command
+  # substitutions. Render to a file before publishing to the caller's stdout.
+  brief=$(mktemp "$STATE/.afk-return-brief.XXXXXX") || { rm -f "$evidence" "$blockers" "$drain_err"; return 1; }
+  if ! render_return_brief "$evidence" "$blockers" "$since" "$drain_ok" > "$brief" || ! cat "$brief"; then
+    append_evidence lifecycle 'return brief publication failed; retry catch-up before ordinary work' "$evidence"
+    lifecycle_ok=0
+  fi
+  rm -f "$brief"
   if [ "$HELD_READ_FAILED" -eq 1 ]; then
     append_evidence lifecycle "held set unreadable: $HELD_READ_PATH; catch-up stays gated" "$evidence"
     lifecycle_ok=0
